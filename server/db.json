@@ -1,0 +1,186 @@
+{
+  "racesArray": [
+    {
+      "id": 1,
+      "raceName": "City of Lakes Loppet Skate",
+      "raceDate": "2013-02-03",
+      "raceDistance": "33",
+      "percentBack": "41.76"
+    },
+    {
+      "id": 2,
+      "raceName": "Pre-Loppet",
+      "raceDate": "2014-01-11",
+      "raceDistance": "17",
+      "percentBack": "23.47"
+    },
+    {
+      "id": 3,
+      "raceName": "City of Lakes Loppet Classic",
+      "raceDate": "2014-02-01",
+      "raceDistance": "42",
+      "percentBack": "34.41"
+    },
+    {
+      "id": 4,
+      "raceName": "City of Lakes Loppet Skate",
+      "raceDate": "2014-02-02",
+      "raceDistance": "42",
+      "percentBack": "41.56"
+    },
+    {
+      "id": 5,
+      "raceName": "Ahvo Classic",
+      "raceDate": "2015-01-01",
+      "raceDistance": "12",
+      "percentBack": "20.16"
+    },
+    {
+      "id": 6,
+      "raceName": "City of Lakes Loppet Classic",
+      "raceDate": "2015-01-31",
+      "raceDistance": "16.5",
+      "percentBack": "38.59"
+    },
+    {
+      "id": 7,
+      "raceName": "City of Lakes Loppet Skate",
+      "raceDate": "2015-02-01",
+      "raceDistance": "13.1",
+      "percentBack": "26.18"
+    },
+    {
+      "id": 8,
+      "raceName": "Battle Creek Open",
+      "raceDate": "2016-01-02",
+      "raceDistance": "15",
+      "percentBack": "18.74"
+    },
+    {
+      "id": 9,
+      "raceName": "Hyland Ski Rennet Classic",
+      "raceDate": "2016-01-23",
+      "raceDistance": "20",
+      "percentBack": "20.21"
+    },
+    {
+      "id": 10,
+      "raceName": "City of Lakes Loppet Classic",
+      "raceDate": "2016-02-06",
+      "raceDistance": "42",
+      "percentBack": "29.53"
+    },
+    {
+      "id": 11,
+      "raceName": "City of Lakes Loppet Skate",
+      "raceDate": "2016-02-07",
+      "raceDistance": "42",
+      "percentBack": "25.92"
+    },
+    {
+      "id": 12,
+      "raceName": "Birkie",
+      "raceDate": "2016-02-20",
+      "raceDistance": "51",
+      "percentBack": "50.02"
+    },
+    {
+      "id": 13,
+      "raceName": "Skinny Santa Solstice",
+      "raceDate": "2016-12-17",
+      "raceDistance": 10,
+      "percentBack": 40.23
+    },
+    {
+      "id": 14,
+      "raceName": "Pre-Loppet",
+      "raceDate": "2017-01-08",
+      "raceDistance": 14,
+      "percentBack": 23.68
+    },
+    {
+      "id": 15,
+      "raceName": "Three Rivers Ski Rennet",
+      "raceDate": "2017-01-21",
+      "raceDistance": 20,
+      "percentBack": 23.21
+    },
+    {
+      "id": 16,
+      "raceName": "City of Lakes Loppet Classic",
+      "raceDate": "2017-02-04",
+      "raceDistance": 30,
+      "percentBack": 35.41
+    },
+    {
+      "id": 17,
+      "raceName": "City of Lakes Loppet Skate",
+      "raceDate": "2017-02-05",
+      "raceDistance": 30,
+      "percentBack": 21.65
+    },
+    {
+      "id": 18,
+      "raceName": "Hamsterbeiner",
+      "raceDate": "2017-02-26",
+      "raceDistance": 25,
+      "percentBack": 19.93
+    },
+    {
+      "id": 19,
+      "raceName": "Pepsi Challenge",
+      "raceDate": "2017-03-04",
+      "raceDistance": 48,
+      "percentBack": 33.98
+    },
+    {
+      "id": 20,
+      "raceName": "Winter Warm-Up",
+      "raceDate": "2017-12-23",
+      "raceDistance": "10",
+      "percentBack": "24.60"
+    },
+    {
+      "id": 21,
+      "raceName": "Pre-Loppet",
+      "raceDate": "2018-01-07",
+      "raceDistance": "15",
+      "percentBack": "20.25"
+    },
+    {
+      "id": 22,
+      "raceName": "Seeley Hills Classic",
+      "raceDate": "2018-01-13",
+      "raceDistance": "18",
+      "percentBack": "27.25"
+    },
+    {
+      "id": 23,
+      "raceName": "Hyland Ski Rennet",
+      "raceDate": "2018-01-20",
+      "raceDistance": "20",
+      "percentBack": "40.15"
+    },
+    {
+      "id": 24,
+      "raceName": "City of Lakes Loppet Classic",
+      "raceDate": "2018-01-27",
+      "raceDistance": "30",
+      "percentBack": "35.09"
+    },
+    {
+      "id": 25,
+      "raceName": "City of Lakes Loppet Skate",
+      "raceDate": "2018-02-04",
+      "raceDistance": "38",
+      "percentBack": "22.09"
+    },
+    {
+      "id": 26,
+      "raceName": "Mora Vasaloppet",
+      "raceDate": "2018-02-10",
+      "raceDistance": "52",
+      "percentBack": "26.06"
+    }
+  ]
+}
