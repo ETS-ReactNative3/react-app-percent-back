@@ -174,7 +174,7 @@ class Input extends React.Component {
                             <ControlLabel><h2>Enter the ski race information.</h2></ControlLabel><br></br>
                             <ControlLabel> Race Name <FormControl type="text" value={this.state.raceName} onChange={this.updateRaceName} /></ControlLabel>
                             <ControlLabel> Race Distance (in kilometers) <FormControl type="text" value={this.state.raceDistance} onChange={this.updateRaceDistance} /></ControlLabel>
-                            <ControlLabel> Race Date (yyyy-mm-dd) <FormControl type="date" value={this.state.raceDate} onChange={this.updateRaceDate} /></ControlLabel>
+                            <ControlLabel> Race Date <FormControl type="date" value={this.state.raceDate} onChange={this.updateRaceDate} /></ControlLabel>
                         </FormGroup>
 
                         <FormGroup>
