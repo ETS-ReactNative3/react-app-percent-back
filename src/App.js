@@ -4,7 +4,7 @@ import './App.css';
 import Table from './table';
 import Input from './input';
 
-const FourOhFour = () => <h1>404</h1>
+const FourOhFour = () => <h1 class='FourOhFour'>404</h1>
 
 const App = () => (
   <BrowserRouter>
