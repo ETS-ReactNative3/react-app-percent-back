@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Form, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import { Form, FormGroup, ControlLabel, FormControl, Jumbotron } from 'react-bootstrap';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 
 const url = `http://localhost:3000/racesArray`;
@@ -158,9 +158,11 @@ class Input extends React.Component {
         return (
             <div className="App">
                 <div className="jumbotron">
-                    <h1>Percent back calculator</h1>
-                    <h3>Feel the burn</h3>
-                    <Link to="/table">Check out your standings</Link>
+                    <Jumbotron>
+                        <h1>Percent back calculator</h1>
+                        <h3>Feel the burn</h3>
+                        <Link to="/table">Check out your standings</Link>
+                    </Jumbotron>
                 </div>
                 <div className="container">
                     <Form id="enter-statistics" onSubmit={this.calcPercentBack}>

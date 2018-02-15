@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import { Jumbotron } from 'react-bootstrap';
 
 class Table extends React.Component {
     constructor() {
         super();
         this.state = {
             races: [],
-
         }
 
         this.getRaces = this.getRaces.bind(this);
@@ -35,9 +35,11 @@ class Table extends React.Component {
         return (
             <div className="Table">
                 <div className="jumbotron">
-                    <h1>Percent back calculator</h1>
-                    <h3>Feel the burn</h3>
-                    <Link to="/">Enter more races</Link>
+                    <Jumbotron>
+                        <h1>Percent back calculator</h1>
+                        <h3>Feel the burn</h3>
+                        <Link to="/">Enter more races</Link>
+                    </Jumbotron>
                 </div>
                 <div className="container">
                     <BootstrapTable data={this.state.races} striped hover condensed>
