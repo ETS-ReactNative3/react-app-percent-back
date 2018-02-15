@@ -145,9 +145,24 @@ class Input extends React.Component {
             .then(response => {
                 console.log(`Post was successful: ${response}`);
                 this.getRaces();
+                this.cancelCourse();
             })
             .catch(error => console.log(`fetch error adding races: ${error}`))
     }//End of post route
+
+    cancelCourse = () => {
+        this.setState({
+        raceName: "",
+        raceDistance: "",
+        raceDate: "",
+        skierOneHours: "",
+        skierOneMinutes: "",
+        skierOneSeconds: "",
+        youSkierHours: "",
+        youSkierMinutes: "",
+        youSkierSeconds: ""
+    });
+    }
 
     render() {
         return (
@@ -158,7 +173,7 @@ class Input extends React.Component {
                     <Link to="/table">Check out your standings</Link>
                 </div>
                 <div className="container">
-                    <form onSubmit={this.calcPercentBack}>
+                    <form id="enter-statistics" onSubmit={this.calcPercentBack}>
                         <FormGroup>
                             <label>Enter the ski race information.</label><br></br>
                             <label> Race Name: <input type="text" value={this.state.raceName} onChange={this.updateRaceName} /></label>
