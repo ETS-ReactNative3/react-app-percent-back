@@ -126,6 +126,7 @@ class Input extends React.Component {
             "raceDistance": this.state.raceDistance,
             "percentBack": calcPercentBack
         }
+        //POST route for submitting races.
         const request = new Request(`${url}`, {
             method: `Post`,
             headers: new Headers({ 'Content-Type': 'application/json' }),
@@ -161,7 +162,6 @@ class Input extends React.Component {
                     <Jumbotron>
                         <h1>Percent back calculator</h1>
                         <h3>Feel the burn</h3>
-                        <Link to="/table">Check out your standings</Link>
                     </Jumbotron>
                 </div>
                 <div className="container">
@@ -185,7 +185,7 @@ class Input extends React.Component {
                             <ControlLabel> Hours <FormControl type="text" pattern="[0-9]*" value={this.state.youSkierHours} onChange={this.updateyourHours} /></ControlLabel>
                             <ControlLabel> Minutes <FormControl type="text" pattern="[0-9]*" value={this.state.youSkierMinutes} onChange={this.updateyourMinutes} /> </ControlLabel>
                             <ControlLabel> Seconds <FormControl type="text" pattern="[0-9]*" value={this.state.youSkierSeconds} onChange={this.updateyourSeconds} /> </ControlLabel><br></br>
-                            <input type="submit" value="Submit" />
+                            <input type="submit" value="Submit" /> <Link to="/table">Check out your standings</Link>
                         </FormGroup>
                     </Form>
                 </div>

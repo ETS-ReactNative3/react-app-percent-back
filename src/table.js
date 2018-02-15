@@ -18,7 +18,7 @@ class Table extends React.Component {
         console.log('component has mounted');
         this.getRaces();
     }
-
+    //GET route for races.
     getRaces() {
         fetch('http://localhost:3000/racesArray')
             .then(response => response.json())
@@ -38,10 +38,10 @@ class Table extends React.Component {
                     <Jumbotron>
                         <h1>Percent back calculator</h1>
                         <h3>Feel the burn</h3>
-                        <Link to="/">Enter more races</Link>
                     </Jumbotron>
                 </div>
                 <div className="container">
+                    <Link to="/">Enter more races</Link>
                     <BootstrapTable data={this.state.races} striped hover condensed>
                         <TableHeaderColumn dataField='raceName' isKey={true}>Race Name</TableHeaderColumn>
                         <TableHeaderColumn dataField='raceDate'>Race Date</TableHeaderColumn>
