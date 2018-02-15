@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import { Jumbotron } from 'react-bootstrap';
+import { Jumbotron, Breadcrumb } from 'react-bootstrap';
 
 class Table extends React.Component {
     constructor() {
@@ -40,8 +40,13 @@ class Table extends React.Component {
                         <h3>Feel the burn</h3>
                     </Jumbotron>
                 </div>
+                <div className="Breadcrumb">
+                    <Breadcrumb>
+                        <Breadcrumb.Item href="/">Enter Races</Breadcrumb.Item>
+                        <Breadcrumb.Item active>See Standings</Breadcrumb.Item>
+                    </Breadcrumb>
+                </div>
                 <div className="container">
-                    <Link to="/">Enter more races</Link>
                     <BootstrapTable data={this.state.races} striped hover condensed>
                         <TableHeaderColumn dataField='raceName' isKey={true}>Race Name</TableHeaderColumn>
                         <TableHeaderColumn dataField='raceDate'>Race Date</TableHeaderColumn>
