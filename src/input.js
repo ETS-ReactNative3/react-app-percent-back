@@ -52,46 +52,39 @@ class Input extends React.Component {
     }
 
     updateskierOneHours(event) {
-        // console.log(`skieronehours: ${event.target.value}`)
         this.setState({
             skierOneHours: event.target.value
         });
     }
 
     updateskierOneMinutes(event) {
-        // console.log(`skieroneminutes: ${event.target.value}`)
         this.setState({
             skierOneMinutes: event.target.value
         });
     }
 
     updateskierOneSeconds(event) {
-        // console.log(`skieroneseconds: ${event.target.value}`)
         this.setState({
             skierOneSeconds: event.target.value
         });
     }
     updateyourHours(event) {
-        // console.log(`updateyourhours: ${event.target.value}`)
         this.setState({
             youSkierHours: event.target.value
         });
     }
     updateyourMinutes(event) {
-        // console.log(`updateyourhours: ${event.target.value}`)
         this.setState({
             youSkierMinutes: event.target.value
         });
     }
     updateyourSeconds(event) {
-        // console.log(`updateyourhours: ${event.target.value}`)
         this.setState({
             youSkierSeconds: event.target.value
         });
     }
 
     updateRaceDate(event) {
-
         this.setState({
             raceDate: event.target.value
         })
@@ -118,11 +111,8 @@ class Input extends React.Component {
         let yourMinutes = this.state.youSkierMinutes;
         let yourSeconds = this.state.youSkierSeconds;
         let firstPlaceTime = (parseFloat(firstPlaceSkierHours * 60) + parseFloat(firstPlaceSkierMinutes) + parseFloat(firstPlaceSkierSeconds * 0.0166667));
-        // console.log('First Place minutes ' + firstPlaceTime)
         let youTime = (parseFloat(yourHours * 60) + parseFloat(yourMinutes) + parseFloat(yourSeconds * 0.0166667));
-        // console.log('Your minutes ' + youTime)
         let difference = (youTime - firstPlaceTime);
-        // console.log('Difference ' + difference);
         let calcPercentBack = ((difference / firstPlaceTime) * 100).toFixed(2);
         console.log('stuff sent');
         this.setState({
@@ -152,16 +142,16 @@ class Input extends React.Component {
 
     cancelCourse = () => {
         this.setState({
-        raceName: "",
-        raceDistance: "",
-        raceDate: "",
-        skierOneHours: "",
-        skierOneMinutes: "",
-        skierOneSeconds: "",
-        youSkierHours: "",
-        youSkierMinutes: "",
-        youSkierSeconds: ""
-    });
+            raceName: "",
+            raceDistance: "",
+            raceDate: "",
+            skierOneHours: "",
+            skierOneMinutes: "",
+            skierOneSeconds: "",
+            youSkierHours: "",
+            youSkierMinutes: "",
+            youSkierSeconds: ""
+        });
     }
 
     render() {
@@ -173,29 +163,29 @@ class Input extends React.Component {
                     <Link to="/table">Check out your standings</Link>
                 </div>
                 <div className="container">
-                    <form id="enter-statistics" onSubmit={this.calcPercentBack}>
+                    <Form id="enter-statistics" onSubmit={this.calcPercentBack}>
                         <FormGroup>
-                            <label>Enter the ski race information.</label><br></br>
-                            <label> Race Name: <input type="text" value={this.state.raceName} onChange={this.updateRaceName} /></label>
-                            <label> Race Distance (in kilometers): <input type="text" value={this.state.raceDistance} onChange={this.updateRaceDistance} /></label>
-                            <label> Race Date (yyyy-mm-dd): <input type="text" value={this.state.raceDate} onChange={this.updateRaceDate} /></label>
+                            <ControlLabel><h2>Enter the ski race information.</h2></ControlLabel><br></br>
+                            <ControlLabel> Race Name <FormControl type="text" value={this.state.raceName} onChange={this.updateRaceName} /></ControlLabel>
+                            <ControlLabel> Race Distance (in kilometers) <FormControl type="text" value={this.state.raceDistance} onChange={this.updateRaceDistance} /></ControlLabel>
+                            <ControlLabel> Race Date (yyyy-mm-dd) <FormControl type="text" value={this.state.raceDate} onChange={this.updateRaceDate} /></ControlLabel>
                         </FormGroup>
 
                         <FormGroup>
-                            <label>Enter the first place finisher's time below.</label><br></br>
-                            <label> Hours: <input type="text" pattern="[0-9]*" ref="skierOneHours" value={this.state.skierOneHours} onChange={this.updateskierOneHours} /></label>
-                            <label> Minutes: <input type="text" pattern="[0-9]*" value={this.state.skierOneMinutes} onChange={this.updateskierOneMinutes} /></label>
-                            <label> Seconds: <input type="text" pattern="[0-9]*" value={this.state.skierOneSeconds} onChange={this.updateskierOneSeconds} /></label>
+                            <ControlLabel><h2>Enter the first place finisher's time below.</h2></ControlLabel><br></br>
+                            <ControlLabel> Hours <FormControl type="text" pattern="[0-9]*" ref="skierOneHours" value={this.state.skierOneHours} onChange={this.updateskierOneHours} /></ControlLabel>
+                            <ControlLabel> Minutes <FormControl type="text" pattern="[0-9]*" value={this.state.skierOneMinutes} onChange={this.updateskierOneMinutes} /></ControlLabel>
+                            <ControlLabel> Seconds <FormControl type="text" pattern="[0-9]*" value={this.state.skierOneSeconds} onChange={this.updateskierOneSeconds} /></ControlLabel>
                         </FormGroup>
 
                         <FormGroup>
-                            <label>Enter your time below.</label><br></br>
-                            <label> Hours: <input type="text" pattern="[0-9]*" value={this.state.youSkierHours} onChange={this.updateyourHours} /></label>
-                            <label> Minutes: <input type="text" pattern="[0-9]*" value={this.state.youSkierMinutes} onChange={this.updateyourMinutes} /> </label>
-                            <label> Seconds: <input type="text" pattern="[0-9]*" value={this.state.youSkierSeconds} onChange={this.updateyourSeconds} /> </label><br></br>
+                            <ControlLabel><h2>Enter your time below.</h2></ControlLabel><br></br>
+                            <ControlLabel> Hours <FormControl type="text" pattern="[0-9]*" value={this.state.youSkierHours} onChange={this.updateyourHours} /></ControlLabel>
+                            <ControlLabel> Minutes <FormControl type="text" pattern="[0-9]*" value={this.state.youSkierMinutes} onChange={this.updateyourMinutes} /> </ControlLabel>
+                            <ControlLabel> Seconds <FormControl type="text" pattern="[0-9]*" value={this.state.youSkierSeconds} onChange={this.updateyourSeconds} /> </ControlLabel><br></br>
                             <input type="submit" value="Submit" />
                         </FormGroup>
-                    </form>
+                    </Form>
                 </div>
             </div>
         );
