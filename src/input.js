@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Form, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 
@@ -155,6 +156,7 @@ class Input extends React.Component {
                 <div className="jumbotron">
                     <h1>Percent back calculator</h1>
                     <h3>Feel the burn</h3>
+                    <Link to="/table">Check out your standings</Link>
                 </div>
                 <div className="container">
                     <form onSubmit={this.calcPercentBack}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Form, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
@@ -155,6 +156,7 @@ class Table extends React.Component {
                 <div className="jumbotron">
                     <h1>Percent back calculator</h1>
                     <h3>Feel the burn</h3>
+                    <Link to="/">Enter more races</Link>
                 </div>
                 <div className="container">
                     <BootstrapTable data={this.state.races} striped hover condensed>
