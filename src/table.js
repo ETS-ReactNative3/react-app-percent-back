@@ -44,6 +44,7 @@ class Table extends React.Component {
                         <Breadcrumb.Item active>See Standings</Breadcrumb.Item>
                     </Breadcrumb>
                 </div>
+                <h1 class="title">Your Standings</h1>
                 <div className="container">
                     <BootstrapTable data={this.state.races} striped hover condensed>
                         <TableHeaderColumn dataField='raceName' isKey={true}>Race Name</TableHeaderColumn>
