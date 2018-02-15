@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Form, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+// import { Form, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
-const url = `http://localhost:3000/racesArray`;
+// const url = `http://localhost:3000/racesArray`;
 
 class Table extends React.Component {
     constructor() {
