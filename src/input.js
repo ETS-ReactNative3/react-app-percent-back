@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Form, FormGroup, ControlLabel, FormControl, Jumbotron, Breadcrumb } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
+import { Form, FormGroup, ControlLabel, FormControl, Breadcrumb, Button } from 'react-bootstrap';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 
 const url = `http://localhost:3000/racesArray`;
@@ -159,10 +159,8 @@ class Input extends React.Component {
         return (
             <div className="App">
                 <div className="jumbotron">
-                    <Jumbotron>
                         <h1>Percent back calculator</h1>
                         <h3>Feel the burn</h3>
-                    </Jumbotron>
                 </div>
                 <div className="Breadcrumb">
                     <Breadcrumb>
@@ -170,7 +168,7 @@ class Input extends React.Component {
                         <Breadcrumb.Item href="/table">See Standings</Breadcrumb.Item>
                     </Breadcrumb>
                 </div>
-                <div className="container">
+                <div className="container2">
                     <Form id="enter-statistics" onSubmit={this.calcPercentBack}>
                         <FormGroup>
                             <ControlLabel><h2>Enter the ski race information.</h2></ControlLabel><br></br>
@@ -191,7 +189,7 @@ class Input extends React.Component {
                             <ControlLabel> Hours <FormControl type="text" pattern="[0-9]*" value={this.state.youSkierHours} onChange={this.updateyourHours} /></ControlLabel>
                             <ControlLabel> Minutes <FormControl type="text" pattern="[0-9]*" value={this.state.youSkierMinutes} onChange={this.updateyourMinutes} /> </ControlLabel>
                             <ControlLabel> Seconds <FormControl type="text" pattern="[0-9]*" value={this.state.youSkierSeconds} onChange={this.updateyourSeconds} /> </ControlLabel><br></br>
-                            <input type="submit" value="Submit" />
+                            <Button bsStyle="primary" type="submit" value="Submit" >Submit</Button>
                         </FormGroup>
                     </Form>
                 </div>

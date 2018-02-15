@@ -22,6 +22,44 @@
   font-size: large;
 }
 
+body {
+  background: url('snow.jpg');
+  
+}
+.container {
+  background: white;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.container {
+  opacity: 0.8;
+}
+
+table {
+  opacity: 0.8;
+  background: white;
+  margin: 10px;
+}
+
+.breadcrumb {
+  opacity: 0.8;
+}
+
+.jumbotron {
+  text-align: center;
+  opacity: 0.5;
+  margin-bottom: 0px;
+}
+
+h2{
+  color: white;
+  opacity: 1;
+}
+
+label {
+  color: white
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

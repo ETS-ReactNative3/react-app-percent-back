@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import { Jumbotron, Breadcrumb } from 'react-bootstrap';
+import { Breadcrumb } from 'react-bootstrap';
 
 class Table extends React.Component {
     constructor() {
@@ -35,10 +35,8 @@ class Table extends React.Component {
         return (
             <div className="Table">
                 <div className="jumbotron">
-                    <Jumbotron>
                         <h1>Percent back calculator</h1>
                         <h3>Feel the burn</h3>
-                    </Jumbotron>
                 </div>
                 <div className="Breadcrumb">
                     <Breadcrumb>
