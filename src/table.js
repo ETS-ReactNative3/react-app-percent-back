@@ -48,8 +48,8 @@ class Table extends React.Component {
                 <div className="container">
                     <BootstrapTable data={this.state.races} striped hover condensed>
                         <TableHeaderColumn dataField='raceName' isKey={true}>Race Name</TableHeaderColumn>
-                        <TableHeaderColumn dataField='raceDate'>Race Date</TableHeaderColumn>
-                        <TableHeaderColumn dataField='raceDistance'>Race Distance</TableHeaderColumn>
+                        <TableHeaderColumn dataField='raceDate' dataSort={ true }>Race Date</TableHeaderColumn>
+                        <TableHeaderColumn dataField='raceDistance' dataSort={ true }>Race Distance</TableHeaderColumn>
                         <TableHeaderColumn dataField='percentBack'>Percent Back</TableHeaderColumn>
                     </BootstrapTable>
                 </div>
