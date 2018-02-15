@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import { Jumbotron } from 'react-bootstrap';
+import { Jumbotron, Breadcrumb } from 'react-bootstrap';
 
 class Table extends React.Component {
     constructor() {
@@ -18,7 +18,7 @@ class Table extends React.Component {
         console.log('component has mounted');
         this.getRaces();
     }
-
+    //GET route for races.
     getRaces() {
         fetch('http://localhost:3000/racesArray')
             .then(response => response.json())
@@ -38,8 +38,13 @@ class Table extends React.Component {
                     <Jumbotron>
                         <h1>Percent back calculator</h1>
                         <h3>Feel the burn</h3>
-                        <Link to="/">Enter more races</Link>
                     </Jumbotron>
+                </div>
+                <div className="Breadcrumb">
+                    <Breadcrumb>
+                        <Breadcrumb.Item href="/">Enter Races</Breadcrumb.Item>
+                        <Breadcrumb.Item active>See Standings</Breadcrumb.Item>
+                    </Breadcrumb>
                 </div>
                 <div className="container">
                     <BootstrapTable data={this.state.races} striped hover condensed>

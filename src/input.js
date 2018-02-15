@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Form, FormGroup, ControlLabel, FormControl, Jumbotron } from 'react-bootstrap';
+import { Form, FormGroup, ControlLabel, FormControl, Jumbotron, Breadcrumb } from 'react-bootstrap';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 
 const url = `http://localhost:3000/racesArray`;
@@ -126,6 +126,7 @@ class Input extends React.Component {
             "raceDistance": this.state.raceDistance,
             "percentBack": calcPercentBack
         }
+        //POST route for submitting races.
         const request = new Request(`${url}`, {
             method: `Post`,
             headers: new Headers({ 'Content-Type': 'application/json' }),
@@ -161,8 +162,13 @@ class Input extends React.Component {
                     <Jumbotron>
                         <h1>Percent back calculator</h1>
                         <h3>Feel the burn</h3>
-                        <Link to="/table">Check out your standings</Link>
                     </Jumbotron>
+                </div>
+                <div className="Breadcrumb">
+                    <Breadcrumb>
+                        <Breadcrumb.Item active>Enter Races</Breadcrumb.Item>
+                        <Breadcrumb.Item href="/table">See Standings</Breadcrumb.Item>
+                    </Breadcrumb>
                 </div>
                 <div className="container">
                     <Form id="enter-statistics" onSubmit={this.calcPercentBack}>
