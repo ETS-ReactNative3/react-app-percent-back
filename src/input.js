@@ -129,7 +129,6 @@ class Input extends React.Component {
             percentBack: calcPercentBack
         });
 
-        // let randomNumber = Math.floor(Math.random() * 100);
         const racesArray = {
             "id": (this.state.races.length + 1),
             "raceName": this.state.raceName,
