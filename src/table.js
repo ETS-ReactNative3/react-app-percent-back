@@ -50,7 +50,7 @@ class Table extends React.Component {
                         <TableHeaderColumn dataField='raceName' isKey={true}>Race Name</TableHeaderColumn>
                         <TableHeaderColumn dataField='raceDate' dataSort={ true }>Race Date</TableHeaderColumn>
                         <TableHeaderColumn dataField='raceDistance' dataSort={ true }>Race Distance</TableHeaderColumn>
-                        <TableHeaderColumn dataField='percentBack'>Percent Back</TableHeaderColumn>
+                        <TableHeaderColumn dataField='percentBack' dataSort={ true }>Percent Back</TableHeaderColumn>
                     </BootstrapTable>
                 </div>
             </div>
