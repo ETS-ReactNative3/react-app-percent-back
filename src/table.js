@@ -1,8 +1,10 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import { Breadcrumb } from 'react-bootstrap';
+// import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
+// import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import { Breadcrumb, Button } from 'react-bootstrap';
+
+const url = `http://localhost:3000/racesArray`;
 
 class Table extends React.Component {
     constructor() {
@@ -31,12 +33,24 @@ class Table extends React.Component {
             .catch(error => console.log('Error fetching races', error))
     }
 
+    removeRaces(id) {
+        console.log(`removing race with id ${id}`);
+        const request = new Request(`${url}/${id}`, {
+            method: `DELETE`
+        });
+        fetch(request)
+        .then(response => {
+            this.getRaces();
+        })
+        .catch(error => console.log(`fetch error remove race: ${error}`))
+    }
+
     render() {
         return (
             <div className="Table">
                 <div className="jumbotron">
-                        <h1>Percent back calculator</h1>
-                        <h3>Feel the burn</h3>
+                    <h1>Percent back calculator</h1>
+                    <h3>Feel the burn</h3>
                 </div>
                 <div className="Breadcrumb">
                     <Breadcrumb>
@@ -46,12 +60,14 @@ class Table extends React.Component {
                 </div>
                 <h1 className="title">Your Standings</h1>
                 <div className="container">
-                    <BootstrapTable data={this.state.races} striped hover condensed>
-                        <TableHeaderColumn dataField='raceName' isKey={true}>Race Name</TableHeaderColumn>
-                        <TableHeaderColumn dataField='raceDate' dataSort={ true }>Race Date</TableHeaderColumn>
-                        <TableHeaderColumn dataField='raceDistance' dataSort={ true }>Race Distance</TableHeaderColumn>
-                        <TableHeaderColumn dataField='percentBack' dataSort={ true }>Percent Back</TableHeaderColumn>
-                    </BootstrapTable>
+                    <ul>
+                        {this.state.races.map(races => (
+                            <li key={races.id}>
+                                {races.raceName} | {races.raceDistance} | {races.raceDate} | {races.percentBack} 
+                                <Button bsStyle="danger" onClick={event => this.removeRaces(races.id)}>Delete</Button>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         );
