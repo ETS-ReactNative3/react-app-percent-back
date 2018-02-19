@@ -93,10 +93,9 @@ class Table extends React.Component {
                         Header: "Delete Race",
                         id: "delete",
                         accessor: 'id',
-                        Cell: ({ value }) => (<button onClick={event => this.removeRaces({value})}>Delete</button>)
+                        Cell: ({ value }) => (<Button bsStyle="danger" onClick={event => this.removeRaces({value})}>Delete</Button>)
                     }
                     ]}
-                    races={races}
                     />
                 </div>
             </div>
