@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactTable from 'react-table';
 import "react-table/react-table.css";
-// import { Link } from 'react-router-dom';
-// import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
-// import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import { Breadcrumb, Button } from 'react-bootstrap';
 
 const url = `http://localhost:3000/racesArray`;
@@ -64,14 +61,6 @@ class Table extends React.Component {
                 </div>
                 <h1 className="title">Your Standings</h1>
                 <div className="container">
-                    {/* <ul>
-                        {this.state.races.map(races => (
-                            <li key={races.id}>
-                                {races.raceName} | {races.raceDistance} | {races.raceDate} | {races.percentBack}
-                                <Button bsStyle="danger" onClick={event => this.removeRaces(races.id)}>Delete</Button>
-                            </li>
-                        ))}
-                    </ul> */}
                     <ReactTable data={races} columns={[
                         {
                             Header: "Race Name",
