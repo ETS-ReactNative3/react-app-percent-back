@@ -78,28 +78,28 @@ class Table extends React.Component {
                             accessor: "raceName"
                         },
                         {
-                        Header: "Race Distance",
-                        accessor: "raceDistance"
-                    },
-                    {
-                        Header: "Race Date",
-                        accessor: "raceDate"
-                    },
-                    {
-                        Header: "Percent Back",
-                        accessor: "percentBack"
-                    },
-                    {
-                        Header: "Delete Race",
-                        id: "delete",
-                        accessor: 'id',
-                        Cell: ({ value }) => (<Button bsStyle="danger" onClick={event => this.removeRaces({value})}>Delete</Button>)
-                    }
+                            Header: "Race Distance",
+                            accessor: "raceDistance"
+                        },
+                        {
+                            Header: "Race Date",
+                            accessor: "raceDate"
+                        },
+                        {
+                            Header: "Percent Back",
+                            accessor: "percentBack"
+                        },
+                        {
+                            Header: "Delete Race",
+                            id: "delete",
+                            accessor: 'id',
+                            Cell: ({ value }) => (<Button bsStyle="danger" onClick={event => this.removeRaces({ value })}>Delete</Button>)
+                        }
                     ]}
                     />
                 </div>
             </div>
-                );
+        );
     }
 }
 
