@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactTable from 'react-table';
+import "react-table/react-table.css";
 // import { Link } from 'react-router-dom';
 // import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 // import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
@@ -34,18 +36,20 @@ class Table extends React.Component {
     }
 
     removeRaces(id) {
-        console.log(`removing race with id ${id}`);
-        const request = new Request(`${url}/${id}`, {
+        console.log(id.value);
+        console.log(`removing race with id ${id.value}`);
+        const request = new Request(`${url}/${id.value}`, {
             method: `DELETE`
         });
         fetch(request)
-        .then(response => {
-            this.getRaces();
-        })
-        .catch(error => console.log(`fetch error remove race: ${error}`))
+            .then(response => {
+                this.getRaces();
+            })
+            .catch(error => console.log(`fetch error remove race: ${error}`))
     }
 
     render() {
+        const races = this.state.races;
         return (
             <div className="Table">
                 <div className="jumbotron">
@@ -60,17 +64,43 @@ class Table extends React.Component {
                 </div>
                 <h1 className="title">Your Standings</h1>
                 <div className="container">
-                    <ul>
+                    {/* <ul>
                         {this.state.races.map(races => (
                             <li key={races.id}>
-                                {races.raceName} | {races.raceDistance} | {races.raceDate} | {races.percentBack} 
+                                {races.raceName} | {races.raceDistance} | {races.raceDate} | {races.percentBack}
                                 <Button bsStyle="danger" onClick={event => this.removeRaces(races.id)}>Delete</Button>
                             </li>
                         ))}
-                    </ul>
+                    </ul> */}
+                    <ReactTable data={races} columns={[
+                        {
+                            Header: "Race Name",
+                            accessor: "raceName"
+                        },
+                        {
+                        Header: "Race Distance",
+                        accessor: "raceDistance"
+                    },
+                    {
+                        Header: "Race Date",
+                        accessor: "raceDate"
+                    },
+                    {
+                        Header: "Percent Back",
+                        accessor: "percentBack"
+                    },
+                    {
+                        Header: "Delete Race",
+                        id: "delete",
+                        accessor: 'id',
+                        Cell: ({ value }) => (<button onClick={event => this.removeRaces({value})}>Delete</button>)
+                    }
+                    ]}
+                    races={races}
+                    />
                 </div>
             </div>
-        );
+                );
     }
 }
 
