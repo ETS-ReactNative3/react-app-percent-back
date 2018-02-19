@@ -36,8 +36,9 @@ class Table extends React.Component {
     }
 
     removeRaces(id) {
-        console.log(`removing race with id ${id}`);
-        const request = new Request(`${url}/${id}`, {
+        console.log(id.value);
+        console.log(`removing race with id ${id.value}`);
+        const request = new Request(`${url}/${id.value}`, {
             method: `DELETE`
         });
         fetch(request)
@@ -87,6 +88,12 @@ class Table extends React.Component {
                     {
                         Header: "Percent Back",
                         accessor: "percentBack"
+                    },
+                    {
+                        Header: "Delete Race",
+                        id: "delete",
+                        accessor: 'id',
+                        Cell: ({ value }) => (<button onClick={event => this.removeRaces({value})}>Delete</button>)
                     }
                     ]}
                     races={races}
