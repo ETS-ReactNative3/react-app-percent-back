@@ -11,7 +11,6 @@ class Table extends React.Component {
         this.state = {
             races: [],
         }
-
         this.getRaces = this.getRaces.bind(this);
     }
 
@@ -33,8 +32,6 @@ class Table extends React.Component {
     }
 
     removeRaces(id) {
-        console.log(id.value);
-        console.log(`removing race with id ${id.value}`);
         const request = new Request(`${url}/${id.value}`, {
             method: `DELETE`
         });
