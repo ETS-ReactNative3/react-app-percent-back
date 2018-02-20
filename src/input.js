@@ -160,8 +160,8 @@ class Input extends React.Component {
         return (
             <div className="App">
                 <div className="jumbotron">
-                        <h1>Percent back calculator</h1>
-                        <h3>Feel the burn</h3>
+                        <h1>Percent Back Calculator</h1>
+                        <h3>Feel The Burn</h3>
                 </div>
                 <div className="Breadcrumb">
                     <Breadcrumb>
