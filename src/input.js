@@ -117,9 +117,11 @@ class Input extends React.Component {
         this.setState({
             percentBack: calcPercentBack
         });
+        let idNumber = (this.state.races.length - 1);
+
 
         const racesArray = {
-            "id": (this.state.races.length + 1),
+            "id": (this.state.races[idNumber].id + 1),
             "raceName": this.state.raceName,
             "raceDate": this.state.raceDate,
             "raceDistance": this.state.raceDistance,
