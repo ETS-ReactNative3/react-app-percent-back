@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, FormGroup, ControlLabel, FormControl, Breadcrumb, Button } from 'react-bootstrap';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 
-const url = `http://localhost:3000/racesArray`;
+const url = `/races`;
 
 class Input extends React.Component {
     constructor() {
@@ -39,7 +39,7 @@ class Input extends React.Component {
     }
 
     getRaces() {
-        fetch('http://localhost:3000/racesArray')
+        fetch('/races')
             .then(response => response.json())
             .then(racesArray => {
                 this.setState({
@@ -198,6 +198,5 @@ class Input extends React.Component {
         );
     }
 }
-
 
 export default Input;

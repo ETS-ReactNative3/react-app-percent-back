@@ -3,7 +3,7 @@ import ReactTable from 'react-table';
 import "react-table/react-table.css";
 import { Breadcrumb, Button } from 'react-bootstrap';
 
-const url = `http://localhost:3000/racesArray`;
+const url = `/races`;
 
 class Table extends React.Component {
     constructor() {
@@ -20,8 +20,8 @@ class Table extends React.Component {
     }
     //GET route for races.
     getRaces() {
-        fetch('http://localhost:3000/racesArray')
-            .then(response => response.json())
+        fetch('/races')
+        .then(response => response.json())
             .then(racesArray => {
                 this.setState({
                     races: racesArray
@@ -78,7 +78,7 @@ class Table extends React.Component {
                         {
                             Header: "Delete Race",
                             id: "delete",
-                            accessor: 'id',
+                            accessor: '_id',
                             Cell: ({ value }) => (<Button bsStyle="danger" onClick={event => this.removeRaces({ value })}>Delete</Button>)
                         }
                     ]}
