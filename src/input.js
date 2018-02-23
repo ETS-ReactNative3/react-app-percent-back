@@ -112,7 +112,6 @@ class Input extends React.Component {
         let youTime = (parseFloat(yourHours * 60) + parseFloat(yourMinutes) + parseFloat(yourSeconds * 0.0166667));
         let difference = (youTime - firstPlaceTime);
         let calcPercentBack = ((difference / firstPlaceTime) * 100).toFixed(2);
-        console.log('stuff sent');
         this.setState({
             percentBack: calcPercentBack
         });
