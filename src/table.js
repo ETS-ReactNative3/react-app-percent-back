@@ -53,6 +53,7 @@ class Table extends React.Component {
                     <Breadcrumb>
                         <Breadcrumb.Item href="/">Enter Races</Breadcrumb.Item>
                         <Breadcrumb.Item active>See Standings</Breadcrumb.Item>
+                        <Breadcrumb.Item href='/chart'>See Chart</Breadcrumb.Item>
                     </Breadcrumb>
                 </div>
                 <h1 className="title">Your Standings</h1>
