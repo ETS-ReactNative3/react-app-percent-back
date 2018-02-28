@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Breadcrumb, Button } from 'react-bootstrap';
+var LineChart = require("react-chartjs").Line;
 
 
 class Chart extends React.Component {
-    constructor() {
-        super();
+
+    constructor(props) {
+        super(props);
         this.state = {
-            races: [],
+            races: []
         }
         this.getRaces = this.getRaces.bind(this);
     }
@@ -15,6 +17,7 @@ class Chart extends React.Component {
         console.log('component has mounted');
         this.getRaces();
     }
+
     getRaces() {
         fetch('/races')
             .then(response => response.json())
@@ -22,10 +25,17 @@ class Chart extends React.Component {
                 this.setState({
                     races: racesArray
                 });
-                
             })
             .catch(error => console.log('Error fetching races', error))
     }
+
+    var data = {
+        labels: [2012, 2013, 2014, 2015, 2016, 2017, 2018],
+        datasets: {
+
+        }
+    }
+
     render() {
         return (
             <div className="Chart">
@@ -42,7 +52,7 @@ class Chart extends React.Component {
                 </div>
                 <h1 className="title">Chart Breakdown</h1>
                 <div className="container">
-                    <h2>hi</h2>
+                    <Line data={this.state.races.percentBack} options={this.state.data} height={500} width={700} />
                 </div>
             </div>
         )
