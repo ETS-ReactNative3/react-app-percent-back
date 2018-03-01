@@ -2,6 +2,7 @@ import React from 'react';
 import ReactTable from 'react-table';
 import "react-table/react-table.css";
 import { Breadcrumb, Button } from 'react-bootstrap';
+import Jumbotron from './components/Jumbotron.js';
 
 const url = `/races`;
 
@@ -45,10 +46,7 @@ class Table extends React.Component {
         const races = this.state.races;
         return (
             <div className="Table">
-                <div className="jumbotron">
-                    <h1>Percent Back Calculator</h1>
-                    <h3>Feel The Burn</h3>
-                </div>
+                <Jumbotron />
                 <div className="Breadcrumb">
                     <Breadcrumb>
                         <Breadcrumb.Item href="/">Enter Races</Breadcrumb.Item>

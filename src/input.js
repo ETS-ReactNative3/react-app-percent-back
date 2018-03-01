@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, FormGroup, ControlLabel, FormControl, Breadcrumb, Button } from 'react-bootstrap';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
+import Jumbotron from './components/Jumbotron.js';
 
 const url = `/races`;
 
@@ -157,10 +158,7 @@ class Input extends React.Component {
     render() {
         return (
             <div className="App">
-                <div className="jumbotron">
-                        <h1>Percent Back Calculator</h1>
-                        <h3>Feel The Burn</h3>
-                </div>
+                 <Jumbotron />
                 <div className="Breadcrumb">
                     <Breadcrumb>
                         <Breadcrumb.Item active>Enter Races</Breadcrumb.Item>
