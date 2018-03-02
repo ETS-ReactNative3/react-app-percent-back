@@ -100,7 +100,7 @@ class Input extends React.Component {
             raceDistance: event.target.value
         })
     }
-
+//This function calculates percent back for each race.
     calcPercentBack(event) {
         event.preventDefault();
         let firstPlaceSkierHours = this.state.skierOneHours;
@@ -124,12 +124,14 @@ class Input extends React.Component {
             "raceDistance": this.state.raceDistance,
             "percentBack": calcPercentBack
         }
+
         //POST route for submitting races.
         const request = new Request(`${url}`, {
             method: `Post`,
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify(racesArray)
         });
+
         fetch(request)
             .then(response => {
                 console.log(`Post was successful: ${response}`);
@@ -139,6 +141,7 @@ class Input extends React.Component {
             .catch(error => console.log(`fetch error adding races: ${error}`))
     }//End of post route
 
+    //This resets the form.
     cancelCourse = () => {
         this.setState({
             raceName: "",

@@ -30,7 +30,7 @@ class Table extends React.Component {
             })
             .catch(error => console.log('Error fetching races', error))
     }
-
+//This function deletes races in the MongoDB.
     removeRaces(id) {
         const request = new Request(`${url}/${id.value}`, {
             method: `DELETE`
