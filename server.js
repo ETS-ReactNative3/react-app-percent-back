@@ -5,6 +5,7 @@ var port = process.env.PORT || 5000;
 var races = require('./routes/racesRouter.js')
 var router = express.Router();
 
+app.use(express.static('build'));
 
 app.use(bodyParser.json());
 app.use(express.static('server/public'));
