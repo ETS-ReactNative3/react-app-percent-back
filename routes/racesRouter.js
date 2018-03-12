@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
 
 var RacesSchema = new Schema({
     raceName: String,
-    raceDate: String,
+    raceDate: Date,
     raceDistance: Number,
     percentBack: Number
 });
@@ -15,12 +15,13 @@ var RacesSchema = new Schema({
 var Race = mongoose.model('Race', RacesSchema, 'races');
 
 router.get('/', function (req, res) {
-    Race.find({}, function (err, foundRaces) {
+    Race.find({}).sort({raceDate: 'asc'}).exec( function (err, foundRaces) {
         if (err) {
             res.send('error', err);
             console.log(err)
             res.sendStatus(500);
         } else {
+            console.log(foundRaces);
             res.send(foundRaces);
         }
     })
