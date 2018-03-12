@@ -164,6 +164,7 @@ class Input extends React.Component {
                     <Breadcrumb>
                         <Breadcrumb.Item active>Enter Races</Breadcrumb.Item>
                         <Breadcrumb.Item href="/table">See Standings</Breadcrumb.Item>
+                        <Breadcrumb.Item href='/chart'>See Chart</Breadcrumb.Item>
                     </Breadcrumb>
                 </div>
                 <div className="container2">

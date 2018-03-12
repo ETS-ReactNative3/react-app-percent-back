@@ -27,6 +27,7 @@ class Table extends React.Component {
                 this.setState({
                     races: racesArray
                 });
+                console.log(this.state.races.raceDate)
             })
             .catch(error => console.log('Error fetching races', error))
     }
@@ -51,6 +52,7 @@ class Table extends React.Component {
                     <Breadcrumb>
                         <Breadcrumb.Item href="/">Enter Races</Breadcrumb.Item>
                         <Breadcrumb.Item active>See Standings</Breadcrumb.Item>
+                        <Breadcrumb.Item href='/chart'>See Chart</Breadcrumb.Item>
                     </Breadcrumb>
                 </div>
                 <h1 className="title">Your Standings</h1>
