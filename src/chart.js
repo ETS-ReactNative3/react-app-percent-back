@@ -33,16 +33,15 @@ const data = {
   };
 
 class Chart extends React.Component {
-
-    constructor(props) {
-        super(props);
+    constructor(){
+        super();
         this.state = {
             races: []
         }
         this.getRaces = this.getRaces.bind(this);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         console.log('component has mounted');
         this.getRaces();
     }
@@ -66,12 +65,9 @@ class Chart extends React.Component {
             percentBackIn.push(this.state.races[i].percentBack)
             datesIn.push(this.state.races[i].raceDate);
         }
-        console.log(percentBackIn);
-        console.log(datesIn);
     }
 
     render() {
-        console.log(data)
         return (
             <div className="Chart">
                 <div className="jumbotron">
@@ -87,7 +83,7 @@ class Chart extends React.Component {
                 </div>
                 <h1 className="title">Chart Breakdown</h1>
                 <div className="container">
-                    <Line data={data} />
+                    <Line data={data} redraw/>
                 </div>
             </div>
         )
