@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Breadcrumb, Button } from 'react-bootstrap';
+import React from 'react';
+import { Breadcrumb } from 'react-bootstrap';
 import { Line } from 'react-chartjs-2';
 
 let percentBackIn = [];
@@ -9,8 +9,8 @@ const data = {
     labels: datesIn,
     datasets: [
       {
-        label: 'My First dataset',
-        fill: false,
+        label: 'Races',
+        fill: true,
         lineTension: 0.1,
         backgroundColor: 'rgba(75,192,192,0.4)',
         borderColor: 'rgba(75,192,192,1)',
@@ -31,11 +31,6 @@ const data = {
       }
     ]
   };
-
-  let dataIn = [];
-  
-  
-  
 
 class Chart extends React.Component {
 
@@ -60,8 +55,6 @@ class Chart extends React.Component {
                 this.setState({
                     races: racesArray
                 });
-                dataIn = this.state.races
-                console.log(dataIn)
                 this.organizeChartData()
             })
             .catch(error => console.log('Error fetching races', error))
@@ -70,7 +63,6 @@ class Chart extends React.Component {
 
     organizeChartData() {
         for(var i = 0; i < this.state.races.length; i += 1){
-            let lineData = this.state.races[i];
             percentBackIn.push(this.state.races[i].percentBack)
             datesIn.push(this.state.races[i].raceDate);
         }
@@ -95,8 +87,7 @@ class Chart extends React.Component {
                 </div>
                 <h1 className="title">Chart Breakdown</h1>
                 <div className="container">
-                    <h1>test</h1>
-                    <Line data={data} redraw/>
+                    <Line data={data} />
                 </div>
             </div>
         )

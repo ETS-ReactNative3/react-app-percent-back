@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
 
 var RacesSchema = new Schema({
     raceName: String,
-    raceDate: Date,
+    raceDate: String,
     raceDistance: Number,
     percentBack: Number
 });

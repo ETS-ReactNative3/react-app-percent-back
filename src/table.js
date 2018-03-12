@@ -27,6 +27,7 @@ class Table extends React.Component {
                 this.setState({
                     races: racesArray
                 });
+                console.log(this.state.races.raceDate)
             })
             .catch(error => console.log('Error fetching races', error))
     }
