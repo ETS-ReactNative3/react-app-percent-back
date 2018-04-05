@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
+import { Nav, Navbar, NavbarBrand, NavItem } from 'react-bootstrap';
 
-<Navbar inverse collapseOnSelect>
-    <Navbar.Header>
-        <Navbar.Brand>
-            <a href="#brand">Races Input</a>
-        </Navbar.Brand>
-        <Navbar.Toggle />
-    </Navbar.Header>
-    <Navbar.Collapse>
-        <Nav>
-            <NavItem eventKey={1} href="/">
-            Enter Races
+class NavbarCom extends Component {
+    render() {
+        return (
+            <div className="NavbarCom">
+                <Navbar inverse collapseOnSelect>
+                    <Navbar.Header>
+                        <NavbarBrand>
+                            <a href="/">Enter Races</a>
+                        </NavbarBrand>
+                        <Navbar.Toggle />
+                    </Navbar.Header>
+                    <Navbar.Collapse>
+                        <Nav>
+                            <NavItem event key={2} href="/table">See Standings
             </NavItem>
-            <Nav
-</Navbar>
+                            <NavItem event key={3} href="/chart">See Chart
+            </NavItem>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>;
+            </div>
+        )
+    }
+}
+
+export default NavbarCom;

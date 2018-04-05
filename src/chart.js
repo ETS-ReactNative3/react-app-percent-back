@@ -1,6 +1,7 @@
 import React from 'react';
-import { Breadcrumb } from 'react-bootstrap';
+// import { Breadcrumb, Navbar, NavbarCollapse } from 'react-bootstrap';
 import { Line } from 'react-chartjs-2';
+import NavbarCom from './components/Nav';
 
 let percentBackIn = [];
 let datesIn = [];
@@ -78,11 +79,13 @@ class Chart extends React.Component {
                     <h3>Feel The Burn</h3>
                 </div>
                 <div className="Breadcrumb">
-                    <Breadcrumb>
+                    <NavbarCom />
+                    {/* <Breadcrumb>
                         <Breadcrumb.Item href="/">Enter Races</Breadcrumb.Item>
                         <Breadcrumb.Item href="/table">See Standings</Breadcrumb.Item>
                         <Breadcrumb.Item active>See Chart</Breadcrumb.Item>
-                    </Breadcrumb>
+                    </Breadcrumb> */}
+
                 </div>
                 <h1 className="title">Chart Breakdown</h1>
                 <div className="container">
