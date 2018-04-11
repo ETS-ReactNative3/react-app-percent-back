@@ -3,6 +3,7 @@ import ReactTable from 'react-table';
 import "react-table/react-table.css";
 import { Breadcrumb, Button } from 'react-bootstrap';
 import Jumbotron from './components/Jumbotron.js';
+import NavbarCom from './components/Nav'
 
 const url = `/races`;
 
@@ -48,14 +49,11 @@ class Table extends React.Component {
             <div className="Table">
                 <Jumbotron />
                 <div className="Breadcrumb">
-                    <Breadcrumb>
-                        <Breadcrumb.Item href="/">Enter Races</Breadcrumb.Item>
-                        <Breadcrumb.Item active>See Standings</Breadcrumb.Item>
-                        <Breadcrumb.Item href='/chart'>See Chart</Breadcrumb.Item>
-                    </Breadcrumb>
+                <NavbarCom />
                 </div>
+                <div className="container-fluid">
                 <h1 className="title">Your Standings</h1>
-                <div className="container">
+                <div className="containerTable">
                     <ReactTable data={races} columns={[
                         {
                             Header: "Race Name",
@@ -82,6 +80,7 @@ class Table extends React.Component {
                     ]}
                     />
                 </div>
+            </div>
             </div>
         );
     }

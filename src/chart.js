@@ -1,6 +1,7 @@
 import React from 'react';
-import { Breadcrumb } from 'react-bootstrap';
+// import { Breadcrumb, Navbar, NavbarCollapse } from 'react-bootstrap';
 import { Line } from 'react-chartjs-2';
+import NavbarCom from './components/Nav';
 
 let percentBackIn = [];
 let datesIn = [];
@@ -55,6 +56,7 @@ class Chart extends React.Component {
                 this.setState({
                     races: racesArray
                 });
+                console.table(this.state.races);
                 this.organizeChartData()
             })
             .catch(error => console.log('Error fetching races', error))
@@ -72,24 +74,23 @@ class Chart extends React.Component {
 
     render() {
         return (
-            <div className="Chart">
-                <div className="jumbotron">
-                    <h1>Percent Back Calculator</h1>
-                    <h3>Feel The Burn</h3>
-                </div>
-                <div className="Breadcrumb">
-                    <Breadcrumb>
-                        <Breadcrumb.Item href="/">Enter Races</Breadcrumb.Item>
-                        <Breadcrumb.Item href="/table">See Standings</Breadcrumb.Item>
-                        <Breadcrumb.Item active>See Chart</Breadcrumb.Item>
-                    </Breadcrumb>
-                </div>
-                <h1 className="title">Chart Breakdown</h1>
-                <div className="container">
-                    {this.state.isLoaded ? <Line data={data} redraw={true} /> : <div>Still Loading... </div>}
+            <div className="chartJSX">
+                <div className="Chart">
+                    <div className="jumbotron">
+                        <h1>Percent Back Calculator</h1>
+                        <h3>Feel The Burn</h3>
+                    </div>
+                    <div className="Breadcrumb">
+                        <NavbarCom />
+                    </div>
+                    <h1 className="title">Chart Breakdown</h1>
+                    <div className="containerTable">
+                        {this.state.isLoaded ? <Line data={data} redraw={true} /> : <div>Still Loading... </div>}
+                    </div>
                 </div>
             </div>
         )
     }
 } //End Component
+
 export default Chart;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, FormGroup, ControlLabel, FormControl, Breadcrumb, Button } from 'react-bootstrap';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import Jumbotron from './components/Jumbotron.js';
+import NavbarCom from './components/Nav.js'
 
 const url = `/races`;
 
@@ -159,13 +160,9 @@ class Input extends React.Component {
     render() {
         return (
             <div className="App">
-                 <Jumbotron />
+                <Jumbotron />
                 <div className="Breadcrumb">
-                    <Breadcrumb>
-                        <Breadcrumb.Item active>Enter Races</Breadcrumb.Item>
-                        <Breadcrumb.Item href="/table">See Standings</Breadcrumb.Item>
-                        <Breadcrumb.Item href='/chart'>See Chart</Breadcrumb.Item>
-                    </Breadcrumb>
+                    <NavbarCom />
                 </div>
                 <div className="container2">
                     <Form id="enter-statistics" onSubmit={this.calcPercentBack}>

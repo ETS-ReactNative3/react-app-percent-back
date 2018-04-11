@@ -1,6 +1,7 @@
-.App {
-    text-align: center;
-   }
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+    margin-right: 0px;
+    margin-left: 0px;
+}
    
    .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -25,13 +26,11 @@
    body {
     background: url('snow.jpg');
     }
-   .container {
+   .containerTable {
     background: white;
     padding-right: 0px;
     padding-left: 0px;
     margin-bottom: 10px;
-   }
-   .container {
     opacity: 0.8;
    }
    
@@ -41,10 +40,7 @@
     margin: 10px;
    }
    
-   .breadcrumb {
-    opacity: 0.8;
-   }
-   
+
    .jumbotron {
     text-align: center;
     opacity: 0.5;
@@ -70,3 +66,13 @@
     color: white;
    }
    
+   .container2{
+       margin-left: 20px;
+       margin-right: 20px;
+       text-align: center;
+       color: white;
+   }
+
+   .navbar {
+       margin-bottom: 0px;
+   }
