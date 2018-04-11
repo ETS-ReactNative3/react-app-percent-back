@@ -1,6 +1,6 @@
-.App {
+/* .App {
     text-align: center;
-   }
+   } */
    
    .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -25,12 +25,12 @@
    body {
     background: url('snow.jpg');
     }
-   .container {
+   /* .container {
     background: white;
     padding-right: 0px;
     padding-left: 0px;
     margin-bottom: 10px;
-   }
+   } */
    .container {
     opacity: 0.8;
    }
@@ -46,7 +46,7 @@
    }
    
    .jumbotron {
-    text-align: center;
+    /* text-align: center; */
     opacity: 0.5;
     margin-bottom: 0px;
    }
@@ -61,12 +61,12 @@
    }
    
    .title {
-    text-align: center;
+    /* text-align: center; */
     color: white;
    }
    
    .FourOhFour {
-    text-align: center;
+    /* text-align: center; */
     color: white;
    }
    

@@ -56,6 +56,7 @@ class Chart extends React.Component {
                 this.setState({
                     races: racesArray
                 });
+                console.table(this.state.races);
                 this.organizeChartData()
             })
             .catch(error => console.log('Error fetching races', error))
@@ -73,6 +74,7 @@ class Chart extends React.Component {
 
     render() {
         return (
+            <div className="chartJSX">
             <div className="Chart">
                 <div className="jumbotron">
                     <h1>Percent Back Calculator</h1>
@@ -91,6 +93,7 @@ class Chart extends React.Component {
                 <div className="container">
                     {this.state.isLoaded ? <Line data={data} redraw={true} /> : <div>Still Loading... </div>}
                 </div>
+            </div>
             </div>
         )
     }
