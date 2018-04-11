@@ -75,27 +75,22 @@ class Chart extends React.Component {
     render() {
         return (
             <div className="chartJSX">
-            <div className="Chart">
-                <div className="jumbotron">
-                    <h1>Percent Back Calculator</h1>
-                    <h3>Feel The Burn</h3>
+                <div className="Chart">
+                    <div className="jumbotron">
+                        <h1>Percent Back Calculator</h1>
+                        <h3>Feel The Burn</h3>
+                    </div>
+                    <div className="Breadcrumb">
+                        <NavbarCom />
+                    </div>
+                    <h1 className="title">Chart Breakdown</h1>
+                    <div className="containerTable">
+                        {this.state.isLoaded ? <Line data={data} redraw={true} /> : <div>Still Loading... </div>}
+                    </div>
                 </div>
-                <div className="Breadcrumb">
-                    <NavbarCom />
-                    {/* <Breadcrumb>
-                        <Breadcrumb.Item href="/">Enter Races</Breadcrumb.Item>
-                        <Breadcrumb.Item href="/table">See Standings</Breadcrumb.Item>
-                        <Breadcrumb.Item active>See Chart</Breadcrumb.Item>
-                    </Breadcrumb> */}
-
-                </div>
-                <h1 className="title">Chart Breakdown</h1>
-                <div className="container">
-                    {this.state.isLoaded ? <Line data={data} redraw={true} /> : <div>Still Loading... </div>}
-                </div>
-            </div>
             </div>
         )
     }
 } //End Component
+
 export default Chart;
