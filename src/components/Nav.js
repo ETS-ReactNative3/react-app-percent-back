@@ -5,7 +5,7 @@ class NavbarCom extends Component {
     render() {
         return (
             <div className="NavbarCom">
-                <Navbar inverse collapseOnSelect>
+                <Navbar collapseOnSelect>
                     <Navbar.Header>
                         <NavbarBrand>
                             <a href="/">Enter Races</a>
