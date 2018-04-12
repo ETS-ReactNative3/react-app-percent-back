@@ -14,9 +14,9 @@ class NavbarCom extends Component {
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav>
-                            <NavItem eventKey={2} href="/table">See Standings
+                            <NavItem href="/table">See Standings
             </NavItem>
-                            <NavItem eventKey={3} href="/chart">See Chart
+                            <NavItem href="/chart">See Chart
             </NavItem>
                         </Nav>
                     </Navbar.Collapse>
