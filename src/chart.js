@@ -75,7 +75,7 @@ class Chart extends React.Component {
     render() {
         return (
             <div className="chartJSX">
-                <div className="Chart">
+                
                     <div className="jumbotron">
                         <h1>Percent Back Calculator</h1>
                         <h3>Feel The Burn</h3>
@@ -87,7 +87,7 @@ class Chart extends React.Component {
                     <div className="containerTable">
                         {this.state.isLoaded ? <Line data={data} redraw={true} /> : <div>Still Loading... </div>}
                     </div>
-                </div>
+                
             </div>
         )
     }
