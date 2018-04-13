@@ -3,7 +3,7 @@ import ReactTable from 'react-table';
 import "react-table/react-table.css";
 import { Breadcrumb, Button } from 'react-bootstrap';
 import Jumbotron from './components/Jumbotron.js';
-import NavbarCom from './components/Nav'
+import NavbarCom from './components/Nav';
 
 const url = `/races`;
 
