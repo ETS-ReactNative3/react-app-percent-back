@@ -49,38 +49,38 @@ class Table extends React.Component {
             <div className="Table">
                 <Jumbotron />
                 <div className="Breadcrumb">
-                <NavbarCom />
+                    <NavbarCom />
                 </div>
                 <div className="container-fluid">
-                <h1 className="title">Your Standings</h1>
-                <div className="containerTable">
-                    <ReactTable data={races} columns={[
-                        {
-                            Header: "Race Name",
-                            accessor: "raceName"
-                        },
-                        {
-                            Header: "Race Distance",
-                            accessor: "raceDistance"
-                        },
-                        {
-                            Header: "Race Date",
-                            accessor: "raceDate"
-                        },
-                        {
-                            Header: "Percent Back",
-                            accessor: "percentBack"
-                        },
-                        {
-                            Header: "Delete Race",
-                            id: "delete",
-                            accessor: '_id',
-                            Cell: ({ value }) => (<Button bsStyle="danger" onClick={event => this.removeRaces({ value })}>Delete</Button>)
-                        }
-                    ]}
-                    />
+                    <h1 className="title">Your Standings</h1>
+                    <div className="containerTable">
+                        <ReactTable data={races} columns={[
+                            {
+                                Header: "Race Name",
+                                accessor: "raceName"
+                            },
+                            {
+                                Header: "Race Distance",
+                                accessor: "raceDistance"
+                            },
+                            {
+                                Header: "Race Date",
+                                accessor: "raceDate"
+                            },
+                            {
+                                Header: "Percent Back",
+                                accessor: "percentBack"
+                            },
+                            {
+                                Header: "Delete Race",
+                                id: "delete",
+                                accessor: '_id',
+                                Cell: ({ value }) => (<Button bsStyle="danger" onClick={event => this.removeRaces({ value })}>Delete</Button>)
+                            }
+                        ]}
+                        />
+                    </div>
                 </div>
-            </div>
             </div>
         );
     }

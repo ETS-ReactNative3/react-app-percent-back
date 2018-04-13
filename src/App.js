@@ -12,8 +12,8 @@ const App = () => (
     <div className="app">
       <Switch>
         <Route exact path="/" component={Input} />
-        <Route path="/table" component={Table} />
-        <Route path="/chart" component={Chart} />
+        <Route exact path="/table" component={Table} />
+        <Route exact path="/chart" component={Chart} />
         <Route component={FourOhFour} />
       </Switch>
     </div>
