@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { Nav, Navbar, NavbarBrand, NavItem } from 'react-bootstrap';
 
 class NavbarCom extends Component {
+
+    logout = () => {
+        localStorage.removeItem('jwtToken');
+        window.location.reload();
+      }
+
     render() {
         return (
             <div className="NavbarCom">
@@ -17,6 +23,8 @@ class NavbarCom extends Component {
                             <NavItem eventKey={2} href="/table">See Standings
             </NavItem>
                             <NavItem eventKey={3} href="/chart">See Chart
+            </NavItem>
+                            <NavItem eventKey={4} onClick={this.logout} href="/">Log Out
             </NavItem>
                         </Nav>
                     </Navbar.Collapse>

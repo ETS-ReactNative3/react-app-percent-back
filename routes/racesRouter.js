@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
+var settings = require('../config/settings');
 var passport = require('passport');
 require('../config/passport')(passport);
 var Schema = mongoose.Schema;
@@ -16,8 +17,10 @@ var RacesSchema = new Schema({
 
 var Race = mongoose.model('Race', RacesSchema, 'races');
 
-router.get('/', passport.authenticate('jwt', { session: false }) function (req, res) {
+router.get('/', passport.authenticate('jwt', { session: false }), function (req, res) {
+    console.log('thisruns');
     var token = getToken(req.headers);
+    console.log(token);
     if (token) {
         Race.find({}).sort({ raceDate: 'asc' }).exec(function (err, foundRaces) {
             if (err) {

@@ -1,5 +1,3 @@
-var JwtStrategy = require('passport-jwt').Strategy,
-    ExtractJwt = require('passport-jwt').ExtractJwt;
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt-nodejs');
@@ -20,6 +18,7 @@ var UserSchema = new Schema({
         required: true
     }
 });
+
 
 UserSchema.pre('save', function (next) {
     var user = this;
@@ -49,9 +48,9 @@ UserSchema.methods.comparePassword = function (passw, cb) {
         cb(null, isMatch);
     });
 };
+var User = mongoose.model('User', UserSchema, 'users');
 
 // load up the user model
-var User = require('../models/user');
 var settings = require('../config/settings'); // get settings file
 
 router.post('/register', function(req, res) {
@@ -73,7 +72,7 @@ router.post('/register', function(req, res) {
 });
 
 router.post('/login', function(req, res) {
-    User.findone({
+    User.findOne({
         username: req.body.username
     }, function(err, user) {
         if(err) throw err;
@@ -84,7 +83,7 @@ router.post('/login', function(req, res) {
             user.comparePassword(req.body.password, function (err, isMatch) {
                 if (isMatch && !err) {
                     //if user is found and password is right create a token
-                    var token = jwt.sign(user.toJson(), settings.secret);
+                    var token = jwt.sign(user.toJSON(), settings.secret);
                     //return the information including a token as JSON
                     res.json({success: true, token: 'JWT' + token});
                 } else {
@@ -97,20 +96,3 @@ router.post('/login', function(req, res) {
 
 module.exports = router;
 
-module.exports = function (passport) {
-    var opts = {};
-    opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme("jwt");
-    opts.secretOrKey = settings.secret;
-    passport.use(new JwtStrategy(opts, function (jwt_payload, done) {
-        User.findOne({ id: jwt_payload.id }, function (err, user) {
-            if (err) {
-                return done(err, false);
-            }
-            if (user) {
-                done(null, user);
-            } else {
-                done(null, false);
-            }
-        });
-    }));
-};
