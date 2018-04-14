@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var port = process.env.PORT || 5000;
 var races = require('./routes/racesRouter.js')
 var router = express.Router();
+var auth = require('./routes/usersRouter');
 
 app.use(express.static('build'));
 
@@ -11,6 +12,8 @@ app.use(bodyParser.json());
 app.use(express.static('server/public'));
 
 app.use('/races', races);
+app.use('/api/auth', auth);
+
 
 var mongoose = require('mongoose');
 // var Schema = mongoose.Schema;
