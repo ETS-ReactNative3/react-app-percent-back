@@ -38,21 +38,20 @@ class Input extends React.Component {
 
     componentDidMount() {
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
-        console.log('past axios');
         axios.get('/races')
-            .then(response => response.json())
-            .then(racesArray => {
-                this.setState({
-                    races: racesArray
-                });
-            })
+        .then(res => {
+            this.setState({races: res.data})
+            console.log(this.state.races)
+        })
             .catch((error) => {
-                console.log(error)
-                // if(error.response.status === 401) {
-                //   this.props.history.push("/login");
-                // }
-              });
-          }
+                console.log(error);
+                if (error == "Error: Request failed with status code 401") {
+                  this.props.history.push("/");
+                }
+            });
+        }
+         
+        
 
 
     updateskierOneHours(event) {
