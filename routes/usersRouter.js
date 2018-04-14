@@ -6,52 +6,53 @@ var settings = require('../config/settings');
 var express = require('express');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
+var User = require("../models/user");
 
-var UserSchema = new Schema({
-    username: {
-        type: String,
-        unique: true,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    }
-});
+// var UserSchema = new Schema({
+//     username: {
+//         type: String,
+//         unique: true,
+//         required: true
+//     },
+//     password: {
+//         type: String,
+//         required: true
+//     }
+// });
 
 
-UserSchema.pre('save', function (next) {
-    var user = this;
-    if (this.isModified('password') || this.isNew) {
-        bcrypt.genSalt(10, function (err, salt) {
-            if (err) {
-                return next(err);
-            }
-            bcrypt.hash(user.password, salt, null, function (err, hash) {
-                if (err) {
-                    return next(err);
-                }
-                user.password = hash;
-                next();
-            });
-        });
-    } else {
-        return next();
-    }
-});
+// UserSchema.pre('save', function (next) {
+//     var user = this;
+//     if (this.isModified('password') || this.isNew) {
+//         bcrypt.genSalt(10, function (err, salt) {
+//             if (err) {
+//                 return next(err);
+//             }
+//             bcrypt.hash(user.password, salt, null, function (err, hash) {
+//                 if (err) {
+//                     return next(err);
+//                 }
+//                 user.password = hash;
+//                 next();
+//             });
+//         });
+//     } else {
+//         return next();
+//     }
+// });
 
-UserSchema.methods.comparePassword = function (passw, cb) {
-    bcrypt.compare(passw, this.password, function (err, isMatch) {
-        if (err) {
-            return cb(err);
-        }
-        cb(null, isMatch);
-    });
-};
-var User = mongoose.model('User', UserSchema, 'users');
+// UserSchema.methods.comparePassword = function (passw, cb) {
+//     bcrypt.compare(passw, this.password, function (err, isMatch) {
+//         if (err) {
+//             return cb(err);
+//         }
+//         cb(null, isMatch);
+//     });
+// };
+// var User = mongoose.model('User', UserSchema, 'users');
 
-// load up the user model
-var settings = require('../config/settings'); // get settings file
+// // load up the user model
+// var settings = require('../config/settings'); // get settings file
 
 router.post('/register', function(req, res) {
     if(!req.body.username || !req.body.password) {
@@ -72,6 +73,7 @@ router.post('/register', function(req, res) {
 });
 
 router.post('/login', function(req, res) {
+    console.log(req.body)
     User.findOne({
         username: req.body.username
     }, function(err, user) {
@@ -82,10 +84,10 @@ router.post('/login', function(req, res) {
             //check if password matches
             user.comparePassword(req.body.password, function (err, isMatch) {
                 if (isMatch && !err) {
-                    //if user is found and password is right create a token
-                    var token = jwt.sign(user.toJSON(), settings.secret);
-                    //return the information including a token as JSON
-                    res.json({success: true, token: 'JWT' + token});
+          // if user is found and password is right create a token
+          var token = jwt.sign(user.toJSON(), settings.secret);
+          // return the information including token as JSON
+          res.json({success: true, token: 'JWT ' + token});
                 } else {
                     res.status(401).send({success: false, msg: 'Authentication failed. Wrong password.'});
                 }

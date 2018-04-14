@@ -1,5 +1,7 @@
 var JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
+
+var User = require('../models/user')
 var settings = require('../config/settings'); // get settings file
 
 module.exports = function (passport) {

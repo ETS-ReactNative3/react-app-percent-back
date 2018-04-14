@@ -46,16 +46,13 @@ class Input extends React.Component {
                     races: racesArray
                 });
             })
-            .catch(error => {
-                if (error.response.status === 401) {
-                    // this.props.history.push('/'); //Remember to get this back
-                    console.log(error);
-                } else {
-                    console.log('Error fetching races', error)
-                }
-            })    
-    }
-
+            .catch((error) => {
+                console.log(error)
+                // if(error.response.status === 401) {
+                //   this.props.history.push("/login");
+                // }
+              });
+          }
 
 
     updateskierOneHours(event) {
