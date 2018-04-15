@@ -4,7 +4,7 @@ import { Nav, Navbar, NavbarBrand, NavItem } from 'react-bootstrap';
 class NavbarCom extends Component {
 
     logout = () => {
-        localStorage.removeItem('jwtToken');
+        localStorage.clear();
         window.location.reload();
       }
 

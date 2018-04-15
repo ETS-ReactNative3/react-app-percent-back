@@ -4,6 +4,7 @@ import "react-table/react-table.css";
 import { Breadcrumb, Button } from 'react-bootstrap';
 import Jumbotron from './components/Jumbotron.js';
 import NavbarCom from './components/Nav';
+import axios from 'axios';
 
 const url = `/races`;
 
@@ -13,24 +14,34 @@ class Table extends React.Component {
         this.state = {
             races: [],
         }
-        this.getRaces = this.getRaces.bind(this);
+        // this.getRaces = this.getRaces.bind(this);
     }
 
     componentDidMount() {
-        console.log('component has mounted');
-        this.getRaces();
-    }
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+        axios.get('/races')
+        .then(res => {
+            this.setState({races: res.data})
+            console.log(this.state.races)
+        })
+            .catch((error) => {
+                console.log(error);
+                if (error == "Error: Request failed with status code 401") {
+                  this.props.history.push("/");
+                }
+            });
+        }
     //GET route for races.
-    getRaces() {
-        fetch('/races')
-        .then(response => response.json())
-            .then(racesArray => {
-                this.setState({
-                    races: racesArray
-                });
-            })
-            .catch(error => console.log('Error fetching races', error))
-    }
+    // getRaces() {
+    //     fetch('/races')
+    //     .then(response => response.json())
+    //         .then(racesArray => {
+    //             this.setState({
+    //                 races: racesArray
+    //             });
+    //         })
+    //         .catch(error => console.log('Error fetching races', error))
+    // }
 //This function deletes races in the MongoDB.
     removeRaces(id) {
         const request = new Request(`${url}/${id.value}`, {

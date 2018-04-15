@@ -12,17 +12,19 @@ var RacesSchema = new Schema({
     raceName: String,
     raceDate: String,
     raceDistance: Number,
-    percentBack: Number
+    percentBack: Number,
+    userId: Schema.Types.ObjectId
 });
 
 var Race = mongoose.model('Race', RacesSchema, 'races');
 
 router.get('/', passport.authenticate('jwt', { session: false }), function (req, res) {
-    console.log('thisruns');
+    var userIdIn = req.user.id;
+    console.log('This is the user', userIdIn);
     var token = getToken(req.headers);
     console.log(token);
     if (token) {
-        Race.find({}).sort({ raceDate: 'asc' }).exec(function (err, foundRaces) {
+        Race.find({userId: userIdIn}).sort({ raceDate: 'asc' }).exec(function (err, foundRaces) {
             if (err) {
                 res.send('error', err);
                 console.log(err)
