@@ -12,6 +12,7 @@ class Login extends React.Component {
         message: ''
       };
     }
+
     onChange = (e) => {
       const state = this.state
       state[e.target.name] = e.target.value;

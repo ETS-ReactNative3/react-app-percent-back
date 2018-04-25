@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { Nav, Navbar, NavbarBrand, NavItem } from 'react-bootstrap';
+import axios from 'axios';
 
 class NavbarCom extends Component {
 
     logout = () => {
-        localStorage.clear();
-        window.location.reload();
+        axios.get('api/auth/logout')
+        .then(response => {
+            localStorage.clear();
+            this.props.history.push("/");
+        })
+        .catch(error => console.log('error', error));
       }
 
     render() {

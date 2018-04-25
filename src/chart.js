@@ -50,6 +50,7 @@ class Chart extends React.Component {
         .then(res => {
             this.setState({races: res.data})
             console.log(this.state.races)
+            this.organizeChartData()
         })
             .catch((error) => {
                 console.log(error);

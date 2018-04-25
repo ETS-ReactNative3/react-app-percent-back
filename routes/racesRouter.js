@@ -19,10 +19,10 @@ var RacesSchema = new Schema({
 var Race = mongoose.model('Race', RacesSchema, 'races');
 
 router.get('/', passport.authenticate('jwt', { session: false }), function (req, res) {
-    var userIdIn = req.user.id;
-    console.log('This is the user', userIdIn);
     var token = getToken(req.headers);
-    console.log(token);
+    var payload = token.getPayload();
+    var userIdIn = payload['sub'];
+    console.log('id', userIdIn);
     if (token) {
         Race.find({userId: userIdIn}).sort({ raceDate: 'asc' }).exec(function (err, foundRaces) {
             if (err) {
@@ -30,7 +30,7 @@ router.get('/', passport.authenticate('jwt', { session: false }), function (req,
                 console.log(err)
                 res.sendStatus(500);
             } else {
-                console.log(foundRaces);
+                // console.log(foundRaces);
                 res.send(foundRaces);
             }
         })
@@ -52,7 +52,8 @@ router.delete('/:id', function (req, res) {
 
 router.post('/', passport.authenticate('jwt', { session: false }), function (req, res) {
     var raceToAdd = new Race(req.body);
-    var token = getToken(req.headers);
+
+    
     if (token) {
 
         raceToAdd.save(function (err, data) {
