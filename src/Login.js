@@ -14,10 +14,10 @@ class Login extends React.Component {
     }
 
     onChange = (e) => {
-      const state = this.state
+      const state = this.state;
       state[e.target.name] = e.target.value;
       this.setState(state);
-    }
+    };
   
     onSubmit = (e) => {
       e.preventDefault();
@@ -28,7 +28,7 @@ class Login extends React.Component {
         .then((result) => {
           localStorage.setItem('jwtToken', result.data.token);
           this.setState({ message: '' });
-          console.log(this.state)
+          console.log(this.state);
           this.props.history.push('/input')
         })
         .catch((error) => {
@@ -36,7 +36,7 @@ class Login extends React.Component {
             this.setState({ message: 'Login failed. Username or password not match' });
           }
         });
-    }
+    };
   
     render() {
       const { username, password, message } = this.state;

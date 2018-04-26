@@ -22,7 +22,7 @@ class Input extends React.Component {
             youSkierHours: '',
             youSkierMinutes: '',
             youSkierSeconds: ''
-        }
+        };
         this.updateskierOneHours = this.updateskierOneHours.bind(this);
         this.updateskierOneMinutes = this.updateskierOneMinutes.bind(this);
         this.updateskierOneSeconds = this.updateskierOneSeconds.bind(this);
@@ -40,12 +40,12 @@ class Input extends React.Component {
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         axios.get('/races')
         .then(res => {
-            this.setState({races: res.data})
+            this.setState({races: res.data});
             console.log(this.state.races)
         })
             .catch((error) => {
                 console.log(error);
-                if (error == "Error: Request failed with status code 401") {
+                if (error === "Error: Request failed with status code 401") {
                   this.props.history.push("/");
                 }
             });
@@ -127,7 +127,7 @@ class Input extends React.Component {
             "raceDate": this.state.raceDate,
             "raceDistance": this.state.raceDistance,
             "percentBack": calcPercentBack
-        }
+        };
 
         //POST route for submitting races.
         const request = new Request(`${url}`, {
@@ -163,7 +163,7 @@ class Input extends React.Component {
             youSkierMinutes: "",
             youSkierSeconds: ""
         });
-    }
+    };
 
 
     render() {

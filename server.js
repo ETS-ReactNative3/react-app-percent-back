@@ -1,10 +1,10 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var port = process.env.PORT || 5000;
-var races = require('./routes/racesRouter.js')
-var router = express.Router();
-var auth = require('./routes/usersRouter');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const port = process.env.PORT || 5000;
+const races = require('./routes/racesRouter.js');
+const router = express.Router();
+const auth = require('./routes/usersRouter');
 
 app.use(express.static('build'));
 
@@ -15,12 +15,12 @@ app.use('/races', races);
 app.use('/api/auth', auth);
 
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 // var Schema = mongoose.Schema;
 
-var mongoURI = '';
+let mongoURI = '';
 
-if (process.env.MONGODB_URI != undefined) {
+if (process.env.MONGODB_URI !== undefined) {
     // use the string value of the environment variable
     mongoURI = process.env.MONGODB_URI;
 } else {

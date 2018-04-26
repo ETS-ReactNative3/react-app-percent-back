@@ -12,10 +12,10 @@ class Create extends React.Component {
     };
   }
   onChange = (e) => {
-    const state = this.state
+    const state = this.state;
     state[e.target.name] = e.target.value;
     this.setState(state);
-  }
+  };
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ class Create extends React.Component {
       .then((result) => {
         this.props.history.push("/")
       });
-  }
+  };
 
   render() {
     const { username, password } = this.state;
