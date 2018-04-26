@@ -2,7 +2,8 @@ import React from 'react';
 import { Form, FormGroup, ControlLabel, FormControl, Breadcrumb, Button } from 'react-bootstrap';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import Jumbotron from './components/Jumbotron.js';
-import NavbarCom from './components/Nav.js'
+import NavbarCom from './components/Nav.js';
+import axios from 'axios';
 
 const url = `/races`;
 
@@ -32,24 +33,26 @@ class Input extends React.Component {
         this.updateRaceName = this.updateRaceName.bind(this);
         this.updateRaceDistance = this.updateRaceDistance.bind(this);
         this.updateRaceDate = this.updateRaceDate.bind(this);
-        this.getRaces = this.getRaces.bind(this);
+        // this.getRaces = this.getRaces.bind(this);
     }
 
     componentDidMount() {
-        console.log('component has mounted');
-        this.getRaces();
-    }
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+        axios.get('/races')
+        .then(res => {
+            this.setState({races: res.data})
+            console.log(this.state.races)
+        })
+            .catch((error) => {
+                console.log(error);
+                if (error == "Error: Request failed with status code 401") {
+                  this.props.history.push("/");
+                }
+            });
+        }
+         
+        
 
-    getRaces() {
-        fetch('/races')
-            .then(response => response.json())
-            .then(racesArray => {
-                this.setState({
-                    races: racesArray
-                });
-            })
-            .catch(error => console.log('Error fetching races', error))
-    }
 
     updateskierOneHours(event) {
         this.setState({
@@ -101,7 +104,7 @@ class Input extends React.Component {
             raceDistance: event.target.value
         })
     }
-//This function calculates percent back for each race.
+    //This function calculates percent back for each race.
     calcPercentBack(event) {
         event.preventDefault();
         let firstPlaceSkierHours = this.state.skierOneHours;
@@ -133,7 +136,12 @@ class Input extends React.Component {
             body: JSON.stringify(racesArray)
         });
 
-        fetch(request)
+        axios.post('/races', {
+            "raceName": this.state.raceName,
+            "raceDate": this.state.raceDate,
+            "raceDistance": this.state.raceDistance,
+            "percentBack": calcPercentBack
+        })
             .then(response => {
                 console.log(`Post was successful: ${response}`);
                 this.getRaces();
@@ -156,6 +164,7 @@ class Input extends React.Component {
             youSkierSeconds: ""
         });
     }
+
 
     render() {
         return (
@@ -193,5 +202,6 @@ class Input extends React.Component {
         );
     }
 }
+
 
 export default Input;
