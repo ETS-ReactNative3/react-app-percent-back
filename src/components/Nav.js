@@ -6,12 +6,12 @@ class NavbarCom extends Component {
 
     logout = () => {
         axios.get('api/auth/logout')
-        .then(response => {
-            localStorage.clear();
-            this.props.history.push("/");
-        })
-        .catch(error => console.log('error', error));
-      }
+            .then(response => {
+                localStorage.clear();
+                this.props.history.push("/");
+            })
+            .catch(error => console.log('error', error));
+    }
 
     render() {
         return (
@@ -26,11 +26,11 @@ class NavbarCom extends Component {
                     <Navbar.Collapse>
                         <Nav>
                             <NavItem eventKey={2} href="/table">See Standings
-            </NavItem>
+                            </NavItem>
                             <NavItem eventKey={3} href="/chart">See Chart
-            </NavItem>
+                            </NavItem>
                             <NavItem eventKey={4} onClick={this.logout} href="/">Log Out
-            </NavItem>
+                            </NavItem>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

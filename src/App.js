@@ -7,7 +7,7 @@ import Chart from './chart';
 import Login from './Login';
 import Register from './Register';
 
-const FourOhFour = () => <h1 class='FourOhFour'>404</h1>
+const FourOhFour = () => <h1 className='FourOhFour'>404</h1>;
 
 const App = () => (
   <BrowserRouter>

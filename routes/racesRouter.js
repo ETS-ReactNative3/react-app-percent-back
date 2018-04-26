@@ -1,14 +1,14 @@
 
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var mongoose = require('mongoose');
-var settings = require('../config/settings');
-var passport = require('passport');
+const mongoose = require('mongoose');
+const settings = require('../config/settings');
+const passport = require('passport');
 require('../config/passport')(passport);
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var RacesSchema = new Schema({
+const RacesSchema = new Schema({
     raceName: String,
     raceDate: String,
     raceDistance: Number,
@@ -16,10 +16,10 @@ var RacesSchema = new Schema({
     userId: Schema.Types.ObjectId
 });
 
-var Race = mongoose.model('Race', RacesSchema, 'races');
+const Race = mongoose.model('Race', RacesSchema, 'races');
 
 router.get('/', passport.authenticate('jwt', { session: false }), function (req, res) {
-    var token = getToken(req.headers);
+    let token = getToken(req.headers);
     //var payload = token.getPayload();
     //var userIdIn = payload['sub'];
     //console.log('id', userIdIn);
@@ -27,7 +27,7 @@ router.get('/', passport.authenticate('jwt', { session: false }), function (req,
         Race.find().sort({ raceDate: 'asc' }).exec(function (err, foundRaces) {
             if (err) {
                 res.send('error', err);
-                console.log(err)
+                console.log(err);
                 res.sendStatus(500);
             } else {
                 // console.log(foundRaces);
@@ -37,10 +37,10 @@ router.get('/', passport.authenticate('jwt', { session: false }), function (req,
     } else {
         return res.status(403).send({ success: false, msg: 'Unauthorized.' });
     }
-})
+});
 
 router.delete('/:id', function (req, res) {
-    var raceId = req.params.id;
+    let raceId = req.params.id;
     Race.findByIdAndRemove({ "_id": raceId }, function (err, data) {
         if (err) {
             console.log('error', err)
@@ -48,10 +48,10 @@ router.delete('/:id', function (req, res) {
             res.sendStatus(201);
         }
     })
-})
+});
 
 router.post('/', passport.authenticate('jwt', { session: false }), function (req, res) {
-    var raceToAdd = new Race(req.body);
+    let raceToAdd = new Race(req.body);
 
     
     if (token) {
@@ -71,7 +71,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), function (req
 
 getToken = function (headers) {
     if (headers && headers.authorization) {
-        var parted = headers.authorization.split(' ');
+        let parted = headers.authorization.split(' ');
         if (parted.length === 2) {
             return parted[1];
         } else {

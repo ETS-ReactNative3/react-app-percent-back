@@ -1,12 +1,11 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var bcrypt = require('bcrypt-nodejs');
-var passport = require('passport');
-var settings = require('../config/settings');
-var express = require('express');
-var jwt = require('jsonwebtoken');
-var router = express.Router();
-var User = require("../models/user");
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
+let passport = require('passport');
+let settings = require('../config/settings');
+let express = require('express');
+let jwt = require('jsonwebtoken');
+let router = express.Router();
+let User = require("../models/user");
 
 // var UserSchema = new Schema({
 //     username: {
@@ -58,7 +57,7 @@ router.post('/register', function(req, res) {
     if(!req.body.username || !req.body.password) {
         res.json({success: false, msg: 'Please pass username and password.'});
     } else {
-        var newUser = new User({
+        let newUser = new User({
             username: req.body.username,
             password: req.body.password
         });
@@ -73,7 +72,7 @@ router.post('/register', function(req, res) {
 });
 
 router.post('/login', function(req, res) {
-    console.log(req.body)
+    console.log(req.body);
     User.findOne({
         username: req.body.username
     }, function(err, user) {
@@ -85,7 +84,7 @@ router.post('/login', function(req, res) {
             user.comparePassword(req.body.password, function (err, isMatch) {
                 if (isMatch && !err) {
           // if user is found and password is right create a token
-          var token = jwt.sign(user.toJSON(), settings.secret);
+          let token = jwt.sign(user.toJSON(), settings.secret);
           // return the information including token as JSON
           
           res.json({success: true, token: 'JWT ' + token, sub: user._id});
