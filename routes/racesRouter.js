@@ -20,11 +20,11 @@ var Race = mongoose.model('Race', RacesSchema, 'races');
 
 router.get('/', passport.authenticate('jwt', { session: false }), function (req, res) {
     var token = getToken(req.headers);
-    var payload = token.getPayload();
-    var userIdIn = payload['sub'];
-    console.log('id', userIdIn);
+    //var payload = token.getPayload();
+    //var userIdIn = payload['sub'];
+    //console.log('id', userIdIn);
     if (token) {
-        Race.find({userId: userIdIn}).sort({ raceDate: 'asc' }).exec(function (err, foundRaces) {
+        Race.find().sort({ raceDate: 'asc' }).exec(function (err, foundRaces) {
             if (err) {
                 res.send('error', err);
                 console.log(err)

@@ -19,7 +19,7 @@ class NavbarCom extends Component {
                 <Navbar collapseOnSelect>
                     <Navbar.Header>
                         <NavbarBrand>
-                            <a href="/">Enter Races</a>
+                            <a href="/input">Enter Races</a>
                         </NavbarBrand>
                         <Navbar.Toggle />
                     </Navbar.Header>
