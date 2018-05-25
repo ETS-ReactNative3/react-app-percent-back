@@ -6,6 +6,7 @@ let express = require('express');
 let jwt = require('jsonwebtoken');
 let router = express.Router();
 let User = require("../models/user");
+let userIDIn;
 
 // var UserSchema = new Schema({
 //     username: {
@@ -83,11 +84,13 @@ router.post('/login', function(req, res) {
             //check if password matches
             user.comparePassword(req.body.password, function (err, isMatch) {
                 if (isMatch && !err) {
+                    userIDIn = user._id;
+                    global.userIdWrite =  userIDIn;
+
           // if user is found and password is right create a token
           let token = jwt.sign(user.toJSON(), settings.secret);
           // return the information including token as JSON
-          
-          res.json({success: true, token: 'JWT ' + token, sub: user._id});
+          res.json({success: true, token: 'JWT ' + token});
                 } else {
                 res.status(403).send({success: false, msg: 'Authentication failed. Wrong password.'});
                 }
@@ -95,6 +98,7 @@ router.post('/login', function(req, res) {
         }
     });
 });
+
 
 module.exports = router;
 

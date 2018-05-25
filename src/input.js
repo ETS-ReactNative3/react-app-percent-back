@@ -33,7 +33,6 @@ class Input extends React.Component {
         this.updateRaceName = this.updateRaceName.bind(this);
         this.updateRaceDistance = this.updateRaceDistance.bind(this);
         this.updateRaceDate = this.updateRaceDate.bind(this);
-        // this.getRaces = this.getRaces.bind(this);
     }
 
     componentDidMount() {
@@ -144,7 +143,6 @@ class Input extends React.Component {
         })
             .then(response => {
                 console.log(`Post was successful: ${response}`);
-                this.getRaces();
                 this.cancelCourse();
             })
             .catch(error => console.log(`fetch error adding races: ${error}`))
