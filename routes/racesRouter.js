@@ -8,6 +8,7 @@ const passport = require('passport');
 require('../config/passport')(passport);
 const Schema = mongoose.Schema;
 
+
 const RacesSchema = new Schema({
     raceName: String,
     raceDate: String,
@@ -20,17 +21,15 @@ const Race = mongoose.model('Race', RacesSchema, 'races');
 
 router.get('/', passport.authenticate('jwt', { session: false }), function (req, res) {
     let token = getToken(req.headers);
-    //var payload = token.getPayload();
-    //var userIdIn = payload['sub'];
-    //console.log('id', userIdIn);
+
     if (token) {
-        Race.find().sort({ raceDate: 'asc' }).exec(function (err, foundRaces) {
+        Race.find({userId: userIdWrite}).sort({ raceDate: 'asc' }).exec(function (err, foundRaces) {
             if (err) {
                 res.send('error', err);
                 console.log(err);
                 res.sendStatus(500);
             } else {
-                // console.log(foundRaces);
+                console.log(foundRaces);
                 res.send(foundRaces);
             }
         })
@@ -51,8 +50,8 @@ router.delete('/:id', function (req, res) {
 });
 
 router.post('/', passport.authenticate('jwt', { session: false }), function (req, res) {
-    let raceToAdd = new Race(req.body);
-
+    let raceToAdd = new Race({raceName: req.body.raceName, raceDate: req.body.raceDate, raceDistance: req.body.raceDistance, percentBack: req.body.percentBack, userId: userIdWrite});
+    let token = getToken(req.headers);
     
     if (token) {
 
@@ -61,6 +60,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), function (req
                 console.log(err);
                 res.sendStatus(500);
             } else {
+                console.log(data);
                 res.sendStatus(201);
             }
         })

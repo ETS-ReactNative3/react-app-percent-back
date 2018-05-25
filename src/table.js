@@ -31,17 +31,7 @@ class Table extends React.Component {
                 }
             });
         }
-    //GET route for races.
-    // getRaces() {
-    //     fetch('/races')
-    //     .then(response => response.json())
-    //         .then(racesArray => {
-    //             this.setState({
-    //                 races: racesArray
-    //             });
-    //         })
-    //         .catch(error => console.log('Error fetching races', error))
-    // }
+   
 //This function deletes races in the MongoDB.
     removeRaces(id) {
         const request = new Request(`${url}/${id.value}`, {
