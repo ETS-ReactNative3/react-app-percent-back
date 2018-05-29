@@ -14,7 +14,6 @@ class Table extends React.Component {
         this.state = {
             races: [],
         }
-        // this.getRaces = this.getRaces.bind(this);
     }
 
     componentDidMount() {
@@ -31,18 +30,40 @@ class Table extends React.Component {
                 }
             });
         }
-   
+
 //This function deletes races in the MongoDB.
     removeRaces(id) {
-        const request = new Request(`${url}/${id.value}`, {
-            method: `DELETE`
-        });
-        fetch(request)
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwToken');
+        axios.delete(`/races/delete/${id.value}`)
             .then(response => {
+                console.log(response);
                 this.getRaces();
             })
-            .catch(error => console.log(`fetch error remove race: ${error}`))
+            .catch(error => {
+                console.log(error);
+                if (error === "Error: Request failed with status code 401") {
+                    this.props.history.push("/");
+
+                }
+            });
     }
+
+    getRaces() {
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwToken');
+
+        axios.get('/races')
+            .then(res => {
+                this.setState({races: res.data});
+                console.log(this.state.races)
+            })
+            .catch((error) => {
+                console.log(error.response);
+                if (error === "Error: Request failed with status code 401") {
+                    this.props.history.push("/");
+                }
+            });
+    }
+
 
     render() {
         const races = this.state.races;
