@@ -19,10 +19,11 @@ const RacesSchema = new Schema({
 
 const Race = mongoose.model('Race', RacesSchema, 'races');
 
-router.get('/', passport.authenticate('jwt', { session: false }), function (req, res) {
-    let token = getToken(req.headers);
+router.get('/', function (req, res) {
+    //let token = getToken(req.headers);
+    //console.log('I like when this works,', token);
 
-    if (token) {
+    //if (token) {
         Race.find({userId: userIdWrite}).sort({ raceDate: 'asc' }).exec(function (err, foundRaces) {
             if (err) {
                 res.send('error', err);
@@ -33,25 +34,34 @@ router.get('/', passport.authenticate('jwt', { session: false }), function (req,
                 res.send(foundRaces);
             }
         })
-    } else {
-        return res.status(403).send({ success: false, msg: 'Unauthorized.' });
-    }
+    //} else {
+    //    return res.status(403).send({ success: false, msg: 'Unauthorized.' });
+    //}
 });
 
-router.delete('/:id', function (req, res) {
-    let raceId = req.params.id;
-    Race.findByIdAndRemove({ "_id": raceId }, function (err, data) {
-        if (err) {
-            console.log('error', err)
-        } else {
-            res.sendStatus(201);
-        }
-    })
+router.delete('/delete/:id', function (req, res) {
+    let token = getToken(req.headers);
+    console.log("This is the delete token", token);
+    if (token) {
+        let raceId = req.params.id;
+        console.log(raceId);
+        Race.findByIdAndRemove({ "_id": raceId }, function (err, data) {
+            if (err) {
+                console.log('error', err)
+            } else {
+                res.sendStatus(201);
+            }
+        })
+
+    } else {
+       return res.status(403).send({success: false, msg: 'Unauthorized.'})
+    }
 });
 
 router.post('/', passport.authenticate('jwt', { session: false }), function (req, res) {
     let raceToAdd = new Race({raceName: req.body.raceName, raceDate: req.body.raceDate, raceDistance: req.body.raceDistance, percentBack: req.body.percentBack, userId: userIdWrite});
     let token = getToken(req.headers);
+    console.log("This is the post token", token);
     
     if (token) {
 
