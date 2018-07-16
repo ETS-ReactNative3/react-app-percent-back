@@ -19,11 +19,11 @@ const RacesSchema = new Schema({
 
 const Race = mongoose.model('Race', RacesSchema, 'races');
 
-router.get('/', function (req, res) {
-    //let token = getToken(req.headers);
-    //console.log('I like when this works,', token);
+router.get('/', passport.authenticate('jwt', { session: false }), function (req, res) {
+    let token = getToken(req.headers);
+    console.log('I like when this works,', token);
 
-    //if (token) {
+    if (token) {
         Race.find({userId: userIdWrite}).sort({ raceDate: 'asc' }).exec(function (err, foundRaces) {
             if (err) {
                 res.send('error', err);
@@ -34,12 +34,12 @@ router.get('/', function (req, res) {
                 res.send(foundRaces);
             }
         })
-    //} else {
-    //    return res.status(403).send({ success: false, msg: 'Unauthorized.' });
-    //}
+    } else {
+        return res.status(403).send({ success: false, msg: 'Unauthorized.' });
+    }
 });
 
-router.delete('/delete/:id', function (req, res) {
+router.post('/delete/:id', passport.authenticate('jwt', { session: false }), function (req, res) {
     let token = getToken(req.headers);
     console.log("This is the delete token", token);
     if (token) {
@@ -49,11 +49,13 @@ router.delete('/delete/:id', function (req, res) {
             if (err) {
                 console.log('error', err)
             } else {
+                console.log(data)
                 res.sendStatus(201);
             }
         })
 
     } else {
+        console.log("Not authorized.")
        return res.status(403).send({success: false, msg: 'Unauthorized.'})
     }
 });

@@ -32,6 +32,7 @@ class Login extends React.Component {
           this.props.history.push('/input')
         })
         .catch((error) => {
+            console.log(error);
           if(error.response.status === 401) {
             this.setState({ message: 'Login failed. Username or password not match' });
           }

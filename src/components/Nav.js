@@ -7,8 +7,10 @@ class NavbarCom extends Component {
     logout = () => {
         axios.get('api/auth/logout')
             .then(response => {
+                localStorage.removeItem('jwtToken');
                 localStorage.clear();
-                this.props.history.push("/");
+                global.userIdWrite = "";
+                window.location.reload();
             })
             .catch(error => console.log('error', error));
     }

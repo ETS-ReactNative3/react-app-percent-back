@@ -85,7 +85,7 @@ router.post('/login', function(req, res) {
             user.comparePassword(req.body.password, function (err, isMatch) {
                 if (isMatch && !err) {
                     userIDIn = user._id;
-                    global.userIdWrite =  userIDIn;
+                    global.userIdWrite = userIDIn;
 
           // if user is found and password is right create a token
           let token = jwt.sign(user.toJSON(), settings.secret);
