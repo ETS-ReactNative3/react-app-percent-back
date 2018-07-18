@@ -47,32 +47,17 @@ class Chart extends React.Component {
     componentDidMount() {
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         axios.get('/races')
-        .then(res => {
-            this.setState({races: res.data})
-            console.log(this.state.races)
-            this.organizeChartData()
-        })
+            .then(res => {
+                this.setState({ races: res.data })
+                this.organizeChartData()
+            })
             .catch((error) => {
-                console.log(error);
-                if (error == "Error: Request failed with status code 401") {
-                  this.props.history.push("/");
+                if (error.response.status === 401) {
+                    this.props.history.push("/");
                 }
-            });
+            }
+            );
         }
-
-    // getRaces() {
-    //     fetch('/races')
-    //         .then(response => response.json())
-    //         .then(racesArray => {
-
-    //             this.setState({
-    //                 races: racesArray
-    //             });
-    //             console.table(this.state.races);
-    //             this.organizeChartData()
-    //         })
-    //         .catch(error => console.log('Error fetching races', error))
-    // }
 
     organizeChartData() {
         for (var i = 0; i < this.state.races.length; i += 1) {
