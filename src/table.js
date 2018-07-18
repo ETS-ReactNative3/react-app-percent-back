@@ -21,7 +21,6 @@ class Table extends React.Component {
         axios.get('/races')
         .then(res => {
             this.setState({races: res.data});
-            console.log(this.state.races)
 
         })
             .catch((error) => {
@@ -33,10 +32,8 @@ class Table extends React.Component {
 
 //This function deletes races in the MongoDB.
     removeRaces(id) {
-        //axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwToken');
         axios.post('/races/delete/' + id.value )
             .then(response => {
-                console.log(response);
                 this.getRaces();
             })
             .catch(error => {
@@ -48,11 +45,9 @@ class Table extends React.Component {
     }
 
     getRaces() {
-        //axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwToken');
         axios.get('/races')
             .then(res => {
                 this.setState({races: res.data});
-                console.log(this.state.races)
             })
             .catch((error) => {
                 console.log(error.response);

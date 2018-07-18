@@ -23,16 +23,13 @@ class Login extends React.Component {
       e.preventDefault();
   
       const { username, password } = this.state;
-  console.log(this.state);
       axios.post('/api/auth/login', { username, password })
         .then((result) => {
           localStorage.setItem('jwtToken', result.data.token);
           this.setState({ message: '' });
-          console.log(this.state);
           this.props.history.push('/input')
         })
         .catch((error) => {
-            console.log(error);
           if(error.response.status === 401) {
             this.setState({ message: 'Login failed. Username or password not match' });
           }

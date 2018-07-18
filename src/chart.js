@@ -49,7 +49,6 @@ class Chart extends React.Component {
         axios.get('/races')
             .then(res => {
                 this.setState({ races: res.data })
-                console.log(this.state.races)
                 this.organizeChartData()
             })
             .catch((error) => {
@@ -59,22 +58,6 @@ class Chart extends React.Component {
             }
             );
         }
-
-
-
-    // getRaces() {
-    //     fetch('/races')
-    //         .then(response => response.json())
-    //         .then(racesArray => {
-
-    //             this.setState({
-    //                 races: racesArray
-    //             });
-    //             console.table(this.state.races);
-    //             this.organizeChartData()
-    //         })
-    //         .catch(error => console.log('Error fetching races', error))
-    // }
 
     organizeChartData() {
         for (var i = 0; i < this.state.races.length; i += 1) {

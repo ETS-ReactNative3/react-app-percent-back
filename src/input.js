@@ -40,7 +40,6 @@ class Input extends React.Component {
         axios.get('/races')
             .then(res => {
                 this.setState({ races: res.data });
-                console.log(this.state.races)
             })
             .catch((error) => {
                 if (error.response.status === 401) {
@@ -144,7 +143,6 @@ class Input extends React.Component {
             "percentBack": calcPercentBack
         })
             .then(response => {
-                console.log(`Post was successful: ${response}`);
                 this.cancelCourse();
             })
             .catch(error => console.log(`fetch error adding races: ${error}`))
