@@ -5,15 +5,10 @@ import axios from 'axios';
 class NavbarCom extends Component {
 
     logout = () => {
-        axios.get('api/auth/logout')
-            .then(response => {
-                localStorage.removeItem('jwtToken');
-                localStorage.clear();
-                global.userIdWrite = "";
-                window.location.reload();
-            })
-            .catch(error => console.log('error', error));
-    }
+        localStorage.removeItem('jwtToken');
+        window.location.reload();
+      }
+    
 
     render() {
         return (

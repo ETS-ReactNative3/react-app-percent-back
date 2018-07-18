@@ -25,8 +25,7 @@ class Table extends React.Component {
 
         })
             .catch((error) => {
-                console.log(error);
-                if (error === "Error: Request failed with status code 401") {
+                if (error.response.status === 401) {
                   this.props.history.push("/");
                 }
             });
@@ -49,8 +48,7 @@ class Table extends React.Component {
     }
 
     getRaces() {
-        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwToken');
-
+        //axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwToken');
         axios.get('/races')
             .then(res => {
                 this.setState({races: res.data});
