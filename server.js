@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 5000;
 const races = require('./routes/racesRouter.js');
@@ -37,6 +38,6 @@ mongoose.connection.on('error', function () {
 mongoose.connect(mongoURI);
 
 app.listen(port, function () {
-    console.log('Listening on port: ', port)
+    //console.log('Listening on port: ', port)
     //Starting the server.
 });

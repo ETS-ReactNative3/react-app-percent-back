@@ -21,7 +21,6 @@ class Table extends React.Component {
         axios.get('/races')
         .then(res => {
             this.setState({races: res.data});
-
         })
             .catch((error) => {
                 if (error.response.status === 401) {
@@ -50,7 +49,6 @@ class Table extends React.Component {
                 this.setState({races: res.data});
             })
             .catch((error) => {
-                console.log(error.response);
                 if (error.status === 403) {
                     this.props.history.push("/");
                 }
