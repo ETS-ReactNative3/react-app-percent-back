@@ -49,7 +49,6 @@ class Table extends React.Component {
                 this.setState({races: res.data});
             })
             .catch((error) => {
-                console.log(error.response);
                 if (error.status === 403) {
                     this.props.history.push("/");
                 }
