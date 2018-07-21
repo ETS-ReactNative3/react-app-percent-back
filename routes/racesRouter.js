@@ -3,10 +3,11 @@ const express = require('express');
 const router = express.Router();
 
 const mongoose = require('mongoose');
-const settings = require('../config/settings');
+
 const passport = require('passport');
 require('../config/passport')(passport);
 const Schema = mongoose.Schema;
+
 
 
 const RacesSchema = new Schema({

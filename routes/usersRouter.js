@@ -1,12 +1,13 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 let passport = require('passport');
-let settings = require('../config/settings');
+
 let express = require('express');
 let jwt = require('jsonwebtoken');
 let router = express.Router();
 let User = require("../models/user");
 let userIDIn;
+const key = `${process.env.REACT_APP_SECRET_KEY}`;
 
 // var UserSchema = new Schema({
 //     username: {
@@ -52,7 +53,7 @@ let userIDIn;
 // var User = mongoose.model('User', UserSchema, 'users');
 
 // // load up the user model
-// var settings = require('../config/settings'); // get settings file
+
 
 router.post('/register', function(req, res) {
     if(!req.body.username || !req.body.password) {
@@ -87,7 +88,7 @@ router.post('/login', function(req, res) {
                     global.userIdWrite = userIDIn;
 
           // if user is found and password is right create a token
-          let token = jwt.sign(user.toJSON(), settings.secret);
+          let token = jwt.sign(user.toJSON(), key);
           // return the information including token as JSON
           res.json({success: true, token: 'JWT ' + token});
                 } else {
