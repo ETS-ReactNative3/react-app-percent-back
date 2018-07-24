@@ -30,7 +30,8 @@
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
-    "react-table": "^6.7.6"
+    "react-table": "^6.7.6",
+    "schema-utils": "^0.4.5"
   },
   "scripts": {
     "start": "react-scripts build && node server.js",
