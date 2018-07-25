@@ -13,11 +13,11 @@ const App = () => (
   <BrowserRouter>
     <div className="app">
       <Switch>
-        <Route exact path='/' component={Login} />
-        <Route exact path='/register' component={Register} />
-        <Route exact path="/input" component={Input} />
-        <Route exact path="/table" component={Table} />
-        <Route exact path="/chart" component={Chart} />
+        <Route exact path='./' component={Login} />
+        <Route exact path='./register' component={Register} />
+        <Route exact path="./input" component={Input} />
+        <Route exact path="./table" component={Table} />
+        <Route exact path="./chart" component={Chart} />
         <Route component={FourOhFour} />
       </Switch>
     </div>
