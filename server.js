@@ -7,7 +7,7 @@ const races = require('./routes/racesRouter.js');
 const router = express.Router();
 const auth = require('./routes/usersRouter');
 
-app.use('/static', express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(bodyParser.json());
 //app.use(express.static('server/public'));
