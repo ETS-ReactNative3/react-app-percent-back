@@ -16,15 +16,15 @@ class NavbarCom extends Component {
                 <Navbar collapseOnSelect>
                     <Navbar.Header>
                         <NavbarBrand>
-                            <a href="/input">Enter Races</a>
+                            <a href="*/input">Enter Races</a>
                         </NavbarBrand>
                         <Navbar.Toggle />
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav>
-                            <NavItem eventKey={2} href="/table">See Standings
+                            <NavItem eventKey={2} href="*/table">See Standings
                             </NavItem>
-                            <NavItem eventKey={3} href="/chart">See Chart
+                            <NavItem eventKey={3} href="*/chart">See Chart
                             </NavItem>
                             <NavItem eventKey={4} onClick={this.logout} href="/">Log Out
                             </NavItem>
