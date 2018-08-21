@@ -12,14 +12,14 @@ const FourOhFour = () => <h1 className='FourOhFour'>404</h1>;
 const App = () => (
   <BrowserRouter>
     <div className="app">
-      {/* <Switch> */}
+      <Switch>
         <Route exact path='/' component={Login} />
         <Route exact path='/register' component={Register} />
         <Route exact path="/input" component={Input} />
         <Route exact path="/table" component={Table} />
         <Route exact path="/chart" component={Chart} />
-        {/* <Route path="*" component={FourOhFour} /> */}
-      {/* </Switch> */}
+        <Route path="*" component={FourOhFour} /> */}
+      </Switch>
     </div>
   </BrowserRouter>
 

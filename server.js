@@ -7,12 +7,10 @@ const races = require('./routes/racesRouter.js');
 const router = express.Router();
 const auth = require('./routes/usersRouter');
 
-app.use(express.static('build'));
-
-
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/', function(req, res) {
+    res.sendFile('./build/index.html');
+});
 
 app.use(bodyParser.json());
 //app.use(express.static('server/public'));
