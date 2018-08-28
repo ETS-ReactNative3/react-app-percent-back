@@ -17,9 +17,10 @@ const auth = require('./routes/usersRouter');
 // app.get('/', function (req, res) {
 //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 // });
+app.use(express.static('build'));
 
 app.use(bodyParser.json());
-app.use(express.static('server/public'));
+
 
 app.use('/races', races);
 app.use('/api/auth', auth);
