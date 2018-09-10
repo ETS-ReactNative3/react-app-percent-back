@@ -17,6 +17,10 @@ app.get('/chart', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 
+  app.get('/input', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+
 app.use(bodyParser.json());
 
 
