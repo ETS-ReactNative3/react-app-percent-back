@@ -7,17 +7,15 @@ const races = require('./routes/racesRouter.js');
 const router = express.Router();
 const auth = require('./routes/usersRouter');
 
-// app.use(express.static(path.join(__dirname, 'build')));
-// app.get('/', function(req, res) {
-//     res.sendFile('./build/index.html');
-// });
+app.use(express.static(path.join(__dirname, 'build')));
 
-//app.use(express.static(path.join(__dirname, 'build')));
+app.get('/chart', function (req, res) {
+   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+ });
 
-// app.get('/', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
-app.use(express.static('build'));
+ app.get('/table', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 
 app.use(bodyParser.json());
 
@@ -48,6 +46,6 @@ mongoose.connection.on('error', function () {
 mongoose.connect(mongoURI);
 
 app.listen(port, function () {
-    //console.log('Listening on port: ', port)
+    console.log('Listening on port: ', port)
     //Starting the server.
 });

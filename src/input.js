@@ -42,6 +42,7 @@ class Input extends React.Component {
                 this.setState({ races: res.data });
             })
             .catch((error) => {
+                console.log(error);
                 if (error.response.status === 401) {
                     this.props.history.push("/");
                 }
