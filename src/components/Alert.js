@@ -17,22 +17,22 @@ class Trigger extends React.Component {
     }
     render() {
         return (
-            <div className="modal-container" style={{height: 200 }}>
-            
-            <Modal show={this.state.show} onHide={this.handleHide} container={this} aria-labelledby="contained-modal-title">
-            <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title">
-            Contained Modal
+            <div className="modal-container" style={{ height: 200 }}>
+
+                <Modal show={this.state.show} onHide={this.handleHide} container={this} aria-labelledby="contained-modal-title">
+                    <Modal.Header closeButton>
+                        <Modal.Title id="contained-modal-title">
+                            Contained Modal
             </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                Your race has been saved successfully!
+                    </Modal.Header>
+                    <Modal.Body>
+                        Your race has been saved successfully!
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button onclick={this.handleHide}>Close</Button>
+                    <Modal.Footer>
+                        <Button onclick={this.handleHide}>Close</Button>
                     </Modal.Footer>
-                    </Modal>
-                    </div>
+                </Modal>
+            </div>
 
         );
     }

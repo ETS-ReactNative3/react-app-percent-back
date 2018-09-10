@@ -59,6 +59,7 @@ router.post('/register', function(req, res) {
     if(!req.body.username || !req.body.password) {
         res.json({success: false, msg: 'Please pass username and password.'});
     } else {
+        
         let newUser = new User({
             username: req.body.username,
             password: req.body.password
@@ -74,6 +75,7 @@ router.post('/register', function(req, res) {
 });
 
 router.post('/login', function(req, res) {
+    console.log(req.body);
     User.findOne({
         username: req.body.username
     }, function(err, user) {

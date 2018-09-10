@@ -21,6 +21,7 @@ const RacesSchema = new Schema({
 const Race = mongoose.model('Race', RacesSchema, 'races');
 
 router.get('/', passport.authenticate('jwt', { session: false }), function (req, res) {
+    console.log(req);
     let token = getToken(req.headers);
 
     if (token) {
