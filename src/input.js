@@ -4,6 +4,8 @@ import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import Jumbotron from './components/Jumbotron.js';
 import NavbarCom from './components/Nav.js';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const url = `/races`;
 
@@ -143,6 +145,7 @@ class Input extends React.Component {
             "percentBack": calcPercentBack
         })
             .then(response => {
+                this.notify();
                 this.cancelCourse();
             })
             .catch(error => console.log(`fetch error adding races: ${error}`))
@@ -163,6 +166,12 @@ class Input extends React.Component {
         });
     };
 
+    notify = () => {
+        toast.success("Your race has been added.", {
+            position: "bottom-left"
+        })
+
+    }
 
     render() {
         return (
@@ -195,6 +204,7 @@ class Input extends React.Component {
                             <Button bsStyle="primary" type="submit" value="Submit" >Submit</Button>
                         </FormGroup>
                     </Form>
+                    <ToastContainer />
                 </div>
             </div>
         );
