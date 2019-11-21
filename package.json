@@ -7,6 +7,7 @@
     "bcrypt-nodejs": "0.0.3",
     "chart.js": "^2.7.1",
     "chartjs": "^0.3.24",
+    "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "express": "^4.16.2",
     "express-session": "^1.15.6",

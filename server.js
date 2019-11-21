@@ -5,7 +5,10 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 5000;
 const races = require('./routes/racesRouter.js');
 const router = express.Router();
+var cors = require('cors')
 const auth = require('./routes/usersRouter');
+
+app.use(cors())
 
 app.use(express.static(path.join(__dirname, 'build')));
 
@@ -50,6 +53,6 @@ mongoose.connection.on('error', function () {
 mongoose.connect(mongoURI);
 
 app.listen(port, function () {
-    //console.log('Listening on port: ', port)
+    console.log('Listening on port: ', port)
     //Starting the server.
 });

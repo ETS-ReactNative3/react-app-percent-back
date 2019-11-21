@@ -67,6 +67,7 @@ router.post('/register', function(req, res) {
         //Save the user
         newUser.save(function(err) {
             if(err) {
+                console.log(err)
                 return res.json({success: false, msg: 'Username already exists.'});
             }
             res.json({success: true, msg: 'Successfully created new user.'})
@@ -86,12 +87,11 @@ router.post('/login', function(req, res) {
             user.comparePassword(req.body.password, function (err, isMatch) {
                 if (isMatch && !err) {
                     userIDIn = user._id;
-                    global.userIdWrite = userIDIn;
 
           // if user is found and password is right create a token
           let token = jwt.sign(user.toJSON(), key);
           // return the information including token as JSON
-          res.json({success: true, token: 'JWT ' + token});
+          res.json({success: true, token: 'JWT ' + token, userid: user._id});
                 } else {
                 res.status(403).send({success: false, msg: 'Authentication failed. Wrong password.'});
                 }
