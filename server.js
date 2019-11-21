@@ -35,7 +35,7 @@ let mongoURI = '';
 
 if (process.env.MONGODB_URI !== undefined) {
     // use the string value of the environment variable
-    mongoURI = process.env.MONGODB_URI;
+    mongoURI = `${process.env.MONGODB_URI}`;
 } else {
     // use the local database server
     mongoURI = 'mongodb://localhost:27017/percent-back';
