@@ -31,15 +31,7 @@ app.use('/api/auth', auth);
 const mongoose = require('mongoose');
 // var Schema = mongoose.Schema;
 
-let mongoURI = '';
-
-if (process.env.MONGODB_URI !== undefined) {
-    // use the string value of the environment variable
-    mongoURI = `${process.env.MONGODB_URI}`;
-} else {
-    // use the local database server
-    mongoURI = 'mongodb://localhost:27017/percent-back';
-}
+let mongoURI = 'mongodb://apiuser:oAmdztZt4jXvnVBr@percent-back-app-shard-00-00.8tukl.mongodb.net:27017,percent-back-app-shard-00-01.8tukl.mongodb.net:27017,percent-back-app-shard-00-02.8tukl.mongodb.net:27017/percent-back-app?ssl=true&replicaSet=atlas-e0nzkt-shard-0&authSource=admin&retryWrites=true&w=majority';
 
 mongoose.connection.on('connected', function () {
 });
