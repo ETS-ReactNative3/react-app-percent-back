@@ -208,10 +208,10 @@ class Chart extends React.Component {
                     <NavbarCom />
                 </div>
                 <h1 className="title">Chart Breakdown</h1>
-                <Select value={this.state.selectedOption} onChange={this.filterRaces.bind(this)} options={yearsArray} />
+                <Select placeholder="Select by season..." className="dropDownStyle" value={this.state.selectedOption} onChange={this.filterRaces.bind(this)} options={yearsArray} />
                 <div>
-                    <h4 className="margin-auto">Average Percent Back: {this.state.averagePB}</h4>
-                    <Button bsStyle="primary" className="margin-auto" onClick={this.resetRaces.bind(this)}>Reset Chart</Button>
+                    <h4 className="textAlign">Average Percent Back: {this.state.averagePB}</h4>
+                    <Button bsStyle="primary" className="resetButton" onClick={this.resetRaces.bind(this)}>Reset Chart</Button>
                 </div>
                 <div className="containerTable">
                     {this.state.isLoaded ? <Line redraw={this.state.shouldRedraw} data={this.state.chartData} /> : <div>Still Loading... </div>}
