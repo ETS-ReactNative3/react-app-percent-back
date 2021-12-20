@@ -80,3 +80,17 @@
        margin-bottom: 0px;
    }
 
+   .textAlign {
+       text-align: center;
+       color: white;
+   }
+   .dropDownStyle {
+       width: 90%;
+       margin: auto;
+   }
+
+   .resetButton {
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 15px;
+}

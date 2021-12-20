@@ -20,6 +20,9 @@ class Table extends React.Component {
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         axios.get('/races')
         .then(res => {
+            res.data.sort(function(a, b) {
+                return new Date(b.raceDate) - new Date(a.raceDate)
+            })
             this.setState({races: res.data});
         })
             .catch((error) => {
@@ -60,7 +63,6 @@ class Table extends React.Component {
         const races = this.state.races;
         return (
             <div className="Table">
-                <Jumbotron />
                 <div className="Breadcrumb">
                     <NavbarCom />
                 </div>
