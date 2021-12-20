@@ -49,12 +49,6 @@ class Input extends React.Component {
                 }
             })
         }
-    
-
-
-
-
-
 
     updateskierOneHours(event) {
         this.setState({
@@ -176,11 +170,10 @@ class Input extends React.Component {
     render() {
         return (
             <div className="App">
-                <Jumbotron />
                 <div className="Breadcrumb">
                     <NavbarCom />
                 </div>
-                <div className="container2">
+                <div className="container2 align-middle">
                     <Form id="enter-statistics" onSubmit={this.calcPercentBack}>
                         <FormGroup>
                             <ControlLabel><h2>Enter the ski race information.</h2></ControlLabel><br></br>
