@@ -6,6 +6,7 @@ const port = process.env.PORT || 5000;
 const races = require('./routes/racesRouter.js');
 const router = express.Router();
 const auth = require('./routes/usersRouter');
+require('dotenv').config()
 
 app.use(express.static(path.join(__dirname, 'build')));
 
@@ -31,7 +32,7 @@ app.use('/api/auth', auth);
 const mongoose = require('mongoose');
 // var Schema = mongoose.Schema;
 
-let mongoURI = 'mongodb://apiuser:oAmdztZt4jXvnVBr@percent-back-app-shard-00-00.8tukl.mongodb.net:27017,percent-back-app-shard-00-01.8tukl.mongodb.net:27017,percent-back-app-shard-00-02.8tukl.mongodb.net:27017/percent-back-app?ssl=true&replicaSet=atlas-e0nzkt-shard-0&authSource=admin&retryWrites=true&w=majority';
+let mongoURI = process.env.DB_CONNECTION;
 
 mongoose.connection.on('connected', function () {
 });
