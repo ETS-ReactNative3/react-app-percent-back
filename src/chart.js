@@ -102,7 +102,8 @@ class Chart extends React.Component {
 
         const dateSet = new Date();
         dateSet.setFullYear(data.value);
-        const end = new Date(dateSet.setMonth(dateSet.getMonth() -6))
+
+        const end = new Date(dateSet.setMonth(dateSet.getMonth() +6))
         const start = new Date(dateSet.setMonth(dateSet.getMonth() -12))
   
         let totalPB = 0
